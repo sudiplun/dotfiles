@@ -30,9 +30,9 @@
     "<C-a>": false,
     "<C-f>": false
 },
+ "editor.lineNumbers": "relative",
 "workbench.sideBar.location": "right",
 "window.menuBarVisibility": "toggle",
-"editor.fontSize": 16.5,
 "liveServer.settings.donotShowInfoMsg": true,
 "[html]": {
   "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -40,5 +40,17 @@
 "[astro]": {
   "editor.defaultFormatter": "astro-build.astro-vscode"
 },
-"editor.lineNumbers": "relative"
+"explorer.confirmDelete": false,
+"[javascript]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[scss]": {
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"workbench.colorTheme": "One Dark Pro",
+"editor.fontLigatures": true,
+"editor.fontSize": 16.5,
+"editor.fontFamily": "'JetBrains Mono', 'monospace', monospace",
+"editor.fontWeight": "normal",
+"editor.smoothScrolling": true,
 }
