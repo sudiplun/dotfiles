@@ -32,7 +32,6 @@
   },
   "editor.lineNumbers": "relative",
   "workbench.sideBar.location": "right",
-  "window.menuBarVisibility": "toggle",
   "liveServer.settings.donotShowInfoMsg": true,
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -47,7 +46,6 @@
   "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.colorTheme": "One Dark Pro Mix",
   "editor.fontLigatures": true,
   "editor.fontSize": 16.5,
   "editor.fontFamily": "'JetBrains Mono', 'monospace', monospace",
@@ -59,5 +57,10 @@
     "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
   },
   "editor.minimap.enabled": false,
-  "editor.cursorBlinking": "expand"
+  "editor.cursorBlinking": "expand",
+  "workbench.colorTheme": "GitHub Light Default",
+  "window.menuBarVisibility": "toggle",
+  "workbench.editorAssociations": {
+    "*.sqlitedb": "default"
+  }
 }
