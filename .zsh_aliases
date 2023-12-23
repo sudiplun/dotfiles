@@ -1,0 +1,15 @@
+# alias ls="exa  -al --color=always --group-directories-first"
+# #shortcut
+alias topdf="soffice --headless --convert-to pdf"
+alias lamppst="sudo /opt/lampp/lampp start"
+alias lamppsp="sudo /opt/lampp/lampp stop"
+# alias vim="nvim"
+
+#git aliases
+alias ga="git add"
+alias gaa="git add ."
+alias gst="git status"
+alias gcm="git commit -m"
+#flatpak aliases
+alias fl="flatpak list"
+alias fu="flatpak uninstall"
