@@ -4,6 +4,7 @@
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
+  "vim.leader": "<space>",
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "k"],
@@ -25,19 +26,14 @@
       "silent": true
     }
   ],
-  "vim.leader": "<space>",
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-f>": false
   },
   "editor.lineNumbers": "relative",
   "workbench.sideBar.location": "right",
-  "liveServer.settings.donotShowInfoMsg": true,
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[astro]": {
-    "editor.defaultFormatter": "astro-build.astro-vscode"
   },
   "explorer.confirmDelete": false,
   "[javascript]": {
@@ -47,8 +43,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.fontLigatures": true,
-  "editor.fontSize": 16.5,
-  "editor.fontFamily": "'JetBrains Mono', 'monospace', monospace",
+  "editor.fontSize": 13,
+  "editor.fontFamily": "'Hack', 'monospace'",
   "editor.fontWeight": "normal",
   "editor.smoothScrolling": true,
   "editor.codeActionsOnSave": {},
@@ -58,9 +54,11 @@
   },
   "editor.minimap.enabled": false,
   "editor.cursorBlinking": "expand",
-  "workbench.colorTheme": "GitHub Dark",
   "window.menuBarVisibility": "toggle",
   "workbench.editorAssociations": {
     "*.sqlitedb": "default"
-  }
+  },
+  "workbench.colorTheme": "Dracula",
+  "workbench.iconTheme": "material-icon-theme",
+  "window.zoomLevel": 1
 }
