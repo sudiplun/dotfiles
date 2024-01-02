@@ -1,0 +1,41 @@
+import = [
+    "~/.config/alacritty/themes/themes/tokyo-night.toml"
+]
+
+[font]
+size = 13.0
+normal= { family= "Hack", style="Regular" }
+# bold= { family= "Hack", style="Bold" }
+# italic= { family= "Hack", style="Italic" }
+# bold_italic= { family= "Hack" style= "Bold  Italic"}
+
+
+[selection]
+save_to_clipboard = true
+
+[shell]
+args = ["-l"]
+program = "/bin/zsh"
+
+[window]
+# padding = { x = 3, y = 3 }
+dimensions= {columns= 100, lines=40}
+decorations = "none"
+opacity = 0.5
+blur= true
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "Q"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "Return"
+mods = "Control"
+
