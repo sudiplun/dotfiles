@@ -4,10 +4,10 @@ import = [
 
 [font]
 size = 13.0
-normal= { family= "Hack", style="Regular" }
-bold= { family= "Hack", style="Bold" }
-italic= { family= "Hack", style="Italic" }
-bold_italic= { family= "Hack", style= "Bold  Italic"}
+normal= { family= "MesloLGS NF", style="Regular" }
+bold= { family= "MesloLGS NF", style="Bold" }
+italic= { family= "MesloLGS NF", style="Italic" }
+bold_italic= { family= "MesloLGS NF", style= "Bold  Italic"}
 
 [selection]
 save_to_clipboard = true
@@ -18,8 +18,8 @@ program = "/bin/zsh"
 
 [window]
 # padding = { x = 3, y = 3 }
-dimensions= {columns= 100, lines=40}
-# decorations = "none"
+# dimensions= {columns= 100, lines=40}
+decorations = "none"
 opacity = 0.7
 blur= true
 

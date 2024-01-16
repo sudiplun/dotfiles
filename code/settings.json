@@ -1,4 +1,5 @@
 {
+  //vim keyblings
   "vim.easymotion": true,
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
@@ -7,29 +8,40 @@
   "vim.leader": "<space>",
   "vim.insertModeKeyBindings": [
     {
-      "before": ["j", "k"],
-      "after": ["<Esc>"]
+      "before": [
+        "j",
+        "k"
+      ],
+      "after": [
+        "<Esc>"
+      ]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
     {
-      "before": ["<leader>", "d"],
-      "after": ["d", "d"]
+      "before": [
+        "<leader>",
+        "/"
+      ],
+      "commands": [
+        "editor.action.commentLine"
+      ]
     },
     {
-      "before": ["<C-n>"],
-      "commands": [":nohl"]
-    },
-    {
-      "before": ["K"],
-      "commands": ["lineBreakInsert"],
-      "silent": true
+      "before": [
+        "<leader>",
+        "w"
+      ],
+      "commands": [
+        ":w"
+      ]
     }
   ],
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-f>": false
   },
+  //end of vim keyblings
   "editor.lineNumbers": "relative",
   "workbench.sideBar.location": "right",
   "[html]": {
@@ -43,8 +55,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.fontLigatures": true,
-  "editor.fontSize": 13,
-  "editor.fontFamily": "'Hack', 'monospace'",
+  "editor.fontSize": 18.0,
+  "editor.fontFamily": "'JetBrains Mono', 'monospace'",
   "editor.fontWeight": "normal",
   "editor.smoothScrolling": true,
   "editor.codeActionsOnSave": {},
@@ -58,7 +70,8 @@
   "workbench.editorAssociations": {
     "*.sqlitedb": "default"
   },
-  "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "Dracula Soft",
   "workbench.iconTheme": "material-icon-theme",
-  "window.zoomLevel": 1
+  "[tailwindcss]": {},
+  "workbench.settings.applyToAllProfiles": []
 }

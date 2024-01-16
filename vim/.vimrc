@@ -18,3 +18,4 @@ set showmode
 set showmatch
 " Highlight cursor line underneath the cursor horizontally.
 set cursorline
+set wrap
