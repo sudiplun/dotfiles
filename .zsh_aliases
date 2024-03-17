@@ -3,8 +3,8 @@ alias ga="git add"
 alias gaa="git add ."
 alias gst="git status"
 alias gcm="git commit -m"
-alias ssh-sudiplun='eval `ssh-agent -s` && ssh-add ~/.ssh/sudiplun'
-#alias gsta 'git stash save'
+alias git-ssh='~/git/sh/ssh-key.sh'
+alias gsta 'git stash save'
 alias gstaa 'git stash apply'
 alias gstd 'git stash drop'
 alias gstl 'git stash list'
@@ -22,8 +22,10 @@ alias fl="flatpak list"
 alias fu="flatpak uninstall"
 
 # WEB_DEVELOPMENT
+# ----------xampp--------------
 # alias lamppst="sudo /opt/lampp/lampp start"
 # alias lamppsp="sudo /opt/lampp/lampp stop"
+# ---------END------------
 alias lampst="sudo systemctl start httpd && sudo systemctl start mariadb.service"
 alias lampstat="sudo systemctl status httpd && sudo systemctl status mariadb.service"
 alias lampsp="sudo systemctl stop httpd && sudo systemctl stop mariadb.service"
