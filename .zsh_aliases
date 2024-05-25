@@ -3,12 +3,12 @@ alias ga="git add"
 alias gaa="git add ."
 alias gst="git status"
 alias gcm="git commit -m"
-alias git-ssh='~/git/sh/ssh-key.sh'
-alias gsta 'git stash save'
-alias gstaa 'git stash apply'
-alias gstd 'git stash drop'
-alias gstl 'git stash list'
-alias gstp 'git stash pop'
+alias git-ssh="~/git/sh/ssh-key.sh"
+alias gsta "git stash save"
+alias gstaa "git stash apply"
+alias gstd "git stash drop"
+alias gstl "git stash list"
+alias gstp "git stash pop"
 
 #tmux 
 alias t="tmux"
@@ -36,7 +36,6 @@ alias pa="php artisan"
 # TOOLS
 alias topdf="soffice --headless --convert-to pdf"
 alias qr-wifi="nmcli device wifi show-password" 
-
 # OTHER
 alias egrep="grep -E"
 alias mysql="mariadb"
