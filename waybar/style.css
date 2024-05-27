@@ -1,0 +1,66 @@
+/* Colors */
+@define-color bg #1e1e1e;
+@define-color fg #d8d8d8;
+@define-color red #e06c75;
+@define-color green #98c379;
+@define-color yellow #e5c07b;
+@define-color blue #61afef;
+@define-color magenta #c678dd;
+@define-color cyan #56b6c2;
+@define-color white #abb2bf;
+
+/* General styles */
+window#waybar {
+    background: @bg;
+    color: @fg;
+    border-radius: 0;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+/* Module styles */
+#battery, #clock, #cpu, #custom-recording, #disk, #idle_inhibitor, #memory, #mode, #mpd, #network, #pulseaudio, #temperature, #tray, #window {
+    padding: 0 6px;
+}
+
+/* Workspace styles */
+#workspaces {
+    padding: 0 4px;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    color: @fg;
+    border-radius: 0;
+}
+
+#workspaces button.focused {
+    /* background: @blue; */
+   background:  @yellow;
+}
+
+#workspaces button.urgent {
+    background: @red;
+}
+
+/* Styling elements */
+#battery.warning {
+    color: @yellow;
+}
+
+#battery.critical {
+    color: @red;
+}
+
+#cpu.warning {
+    color: @yellow;
+}
+
+#memory.warning {
+    color: @yellow;
+}
+
+#temperature.critical {
+    color: @red;
+}
