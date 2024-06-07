@@ -9,16 +9,11 @@
 @define-color cyan #56b6c2;
 @define-color white #abb2bf;
 /* General styles */
-window#waybar {
-  background: transparent;
-  color: @fg;
-  border-radius: 4;
-  transition-property: background-color;
-  transition-duration: 0.5s;
-}
 * {
   border: none;
-  border-radius: 3;
+  border-radius: 0;
+  font-family: sans-serif;
+  font-weight: bold;
   font-size: 13px;
   min-height: 4px;
 }
@@ -31,19 +26,27 @@ window#waybar {
 #idle_inhibitor,
 #memory,
 #mode,
+#custom-power_menu,
 #mpd,
 #network,
 #pulseaudio,
 #temperature,
 #tray,
 #window {
-  margin: 0 3px;
+  margin: 5px;
 }
 
+window#waybar {
+  background: transparent;
+  color: @fg;
+  border-radius: 4;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
 /* Workspace styles */
 #workspaces {
   /* background: @workspacesbackground1; */
-  /* margin: 5px 1px 4px 1px; */
+  margin: 0px 5px;
   /* padding: 1px 2px; */
   border-radius: 5px;
   border: 0px;
@@ -54,23 +57,15 @@ window#waybar {
 }
 
 #workspaces button {
-  /* padding: 0px 5px; */
-  /* margin: 4px 3px; */
-  /* border-radius: 2px; */
-  border: 0px;
-  color: @fg;
-  /* background-color: @fg; */
   transition: all 0.3s ease-in-out;
-  opacity: 0.4;
+  opacity: 0.5;
 }
 
 #workspaces button.active {
   color: @fg;
-  background: #594e58;
-  border-radius: 5px;
-  min-width: 9px;
+  border-radius: 7px;
   transition: all 0.3s ease-in-out;
-  opacity: 1;
+  opacity: 0.9;
 }
 
 #workspaces button:hover {
