@@ -4,24 +4,57 @@
   // "width": 1280, // Waybar width
   // Choose the order of the modules
   "modules-left": ["custom/app_launcher", "hyprland/workspaces"],
-  "modules-center": ["hyprland/window"],
+  "modules-center": ["idle_inhibitor","hyprland/window"],
   "modules-right": [
     "tray",
     "mpd",
     "keyboard-state",
-    "idle_inhibitor",
     "cpu",
     "memory",
     "sway/language",
     "pulseaudio",
+    "pulseaudio#microphone",
     "network",
     "backlight",
     "battery",
     "battery#bat2",
     "clock",
-    "custom/power_menu",
+    "custom/power_menu"
+    //"custom/lock_screen", 
   ],
-  //// right
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{volume}% {icon} {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    //"format-source": " {volume}% ",
+   // "format-source-muted": " ",
+    "format-icons": {
+      "headphone": " ",
+      "hands-free": "",
+      "headset": " ",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", " ", " "],
+    },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-click-right": "pavucontrol-qt",
+  },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "on-click": "pamixer --default-source -m",
+        "on-click-right" : "pamixer -u --default-source u",
+        "on-scroll-up": "pamixer --default-source -i 1",
+        "on-scroll-down": "pamixer --default-source -d 1",
+        "scroll-step": 1,
+        "tooltip": false,
+        //"tooltip-format": " at {volume}%"
+    },
+
   "custom/app_launcher": {
     "format": "",
     "on-click": "sh -c nwg-drawer",
@@ -48,13 +81,23 @@
     "tooltip": false,
   },
   "memory": {
-    "format": "RAM{}%",
+    "format": "{}% RAM",
+    "states": {
+      // "good": 95,
+      "warning": 69,
+      "critical": 90,
+      },
   },
   "custom/power_menu": {
-    "format": "",
-    "on-click": "poweroff",
-    "tooltip": false,
+    "format": " ",
+    "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
+    "tooltip": false
   },
+  "custom/lock_screen": {
+        "format": " ",
+        "on-click": "sh -c '(sleep 0.5s; hyprlock)' & disown",
+        "tooltip": false
+    },
   "backlight": {
     "device": "intel_backlight",
     "format": "{percent}% {icon}",
@@ -62,7 +105,7 @@
   },
   "battery": {
     "states": {
-      // "good": 95,
+      "good": 70,
       "warning": 30,
       "critical": 15,
     },
@@ -79,31 +122,12 @@
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": " {essid}",
+    "format-wifi": "{essid}  ",
     "format-ethernet": "{ipaddr}/{cidr}  ",
     "tooltip-format": "{ifname} via {gwaddr}  ",
     "format-linked": "{ifname} (No IP)  ",
     "format-disconnected": "Disconnected ⚠",
     "format-alt": "{ifname}: {ipaddr}/{cidr}",
-  },
-  "pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
-    "format": "{volume}% {icon} {format_source}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": " {volume}% ",
-    "format-source-muted": " ",
-    "format-icons": {
-      "headphone": " ",
-      "hands-free": " ",
-      "headset": " ",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", " ", " "],
-    },
-    "on-click": "pavucontrol",
   },
   "custom/media": {
     "format": "{icon} {}",
