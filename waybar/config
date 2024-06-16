@@ -81,7 +81,7 @@
     "tooltip": false,
   },
   "memory": {
-    "format": "{}% RAM",
+    "format": "{}%☰",
     "states": {
       // "good": 95,
       "warning": 69,

@@ -112,6 +112,11 @@ alias lampsp="sudo systemctl stop httpd && sudo systemctl stop mariadb.service"
 alias pa="php artisan"
 # TOOLS
 alias lg="lazygit"
+alias t="tmux"
+alias cm="cmus"
+alias pi="sudo pacman -S"
+alias pis="sudo pacman -Syu"
+alias pr="sudo pacman -Rns"
 alias topdf="soffice --headless --convert-to pdf"
 alias qr-wifi="nmcli device wifi show-password" 
 # OTHER
