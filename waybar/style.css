@@ -39,8 +39,9 @@
 }
 
 window#waybar {
-  /* background: transparent; */
-  background-color: rgba(65, 56, 61, 0.77);
+  background: transparent;
+  /* background-color: rgba(65, 56, 61, 0.77);*/ /*dark grey color*/ 
+  background-color: rgba(0,0,0,0); 
   color: @white;
   border-radius: 4px;
   transition-property: background-color;
