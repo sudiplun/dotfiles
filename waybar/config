@@ -22,6 +22,11 @@
     "custom/power_menu"
     //"custom/lock_screen", 
   ],
+  "hyprland/workspaces": {
+     "format": "{icon}",
+     "on-scroll-up": "hyprctl dispatch workspace e+1",
+     "on-scroll-down": "hyprctl dispatch workspace e-1"
+},
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
     "format": "{volume}% {icon} {format_source}",
