@@ -1,5 +1,8 @@
-/* Colors */
-@define-color bg #1e1e1e;
+/*    COLOR DEFINE */
+@define-color bgcolor #7987A1;
+@define-color txt #b4befe;
+@define-color txtdark #6C7298;
+/* */
 @define-color fg #d8d8d8;
 @define-color red #e06c75;
 @define-color green #98c379;
@@ -9,68 +12,36 @@
 @define-color cyan #56b6c2;
 @define-color white #abb2bf;
 
-/* General styles */
 * {
+  margin: 0;
+  padding: 0 3px;
   border: none;
-  border-radius: 0;
   font-family: sans-serif;
   font-weight: bold;
   font-size: 13px;
-  min-height: 4px;
+  min-height: 14px;
 }
-
-/* Module styles */
-#battery,
-#clock,
-#cpu,
-#custom-recording,
-#disk,
-#idle_inhibitor,
-#memory,
-#mode,
-#custom-power_menu,
-#mpd,
-#network,
-#pulseaudio,
-#temperature,
-#tray,
-#window {
-  margin: 5px;
-}
-
+/* VISUAL */
 window#waybar {
   background: transparent;
-  /* background-color: rgba(65, 56, 61, 0.77);*/ /*dark grey color*/
-  background-color: rgba(0, 0, 0, 0);
-  color: @white;
-  border-radius: 4px;
-  transition-property: background-color;
-  transition-duration: 0.5s;
 }
-/* Workspace styles */
-#workspaces {
-  margin: 0px 5px;
-}
-
-#workspaces button {
-  transition: all 0.3s ease-in-out;
-  color: @fg;
-  margin: 2px;
-  padding: 2px 4px;
-}
-
 #workspaces button.active {
-  color: #27ad2a;
-  border-radius: 7px;
-  transition: all 0.3s ease-in-out;
-  opacity: 1;
+  color: @txt;
 }
-
-#workspaces button:hover {
-  color: @cyan;
-  background: @bg;
-  border-radius: 5px;
-  opacity: 0.7;
+#idle_inhibitor.activated {
+  color: @red;
+}
+#hardware,
+#control {
+  border-radius: 20px;
+  color: @txt;
+}
+#network,
+#power_menu {
+  color: @txt;
+}
+#clock {
+  color: @txt;
 }
 
 /* Styling elements */

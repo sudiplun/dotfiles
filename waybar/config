@@ -1,40 +1,110 @@
 {
-//  "height": 25, // Waybar height (to be removed for auto height)
-  // "spacing": 4,
+  // "position": "left",
+  "spacing": 5,
   // "width": 1280, // Waybar width
   // Choose the order of the modules
-  "modules-left": ["custom/app_launcher", "hyprland/workspaces"],
-  "modules-center": ["idle_inhibitor","hyprland/window"],
+  "modules-left": ["custom/app_launcher", "hyprland/workspaces", "custom/cmus"],
+  "modules-center": ["idle_inhibitor", "hyprland/window"],
   "modules-right": [
-    "tray",
     "mpd",
-    "keyboard-state",
-    "cpu",
-    "memory",
-    "sway/language",
-    "pulseaudio",
-    "pulseaudio#microphone",
+    // "custom/media",
+    "tray",
+    "group/hardware",
+    "group/control",
     "network",
-    "backlight",
-    "battery",
-    "battery#bat2",
     "clock",
     "custom/power_menu"
-    //"custom/lock_screen", 
+    //"custom/lock_screen",
   ],
+  "custom/app_launcher": {
+    "format": " ",
+    "on-click": "sh -c nwg-drawer",
+    "tooltip": false
+  },
   "hyprland/workspaces": {
-     "format": "{icon}",
-     "on-scroll-up": "hyprctl dispatch workspace e+1",
-     "on-scroll-down": "hyprctl dispatch workspace e-1"
-},
+    "format": "{icon}",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1"
+  },
+  "custom/cmus": {
+    "format": "♪ {}",
+    //"max-length": 15,
+    "interval": 10,
+    "exec": "cmus-remote -C \"format_print '%a - %t'\"", // artist - title
+    "exec-if": "pgrep cmus",
+    "on-click": "cmus-remote -u", //toggle pause
+    "escape": true //handle markup entities
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "  ",
+      "deactivated": "  "
+    }
+  },
+  "hyprland/window": {
+    "format": "{title}"
+  },
+  //
+  // RIGHT MODULES
+  "tray": {
+    "spacing": 10
+  },
+  //
+  "group/hardware": {
+    "orientation": "horizontal",
+    "modules": ["cpu", "memory", "battery", "keyboard-state"]
+  },
+  // HARDWARE
+  "cpu": {
+    "format": "{usage}%  ",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "{}% ☰ ",
+    "states": {
+      "good": 30,
+      "warning": 69,
+      "critical": 90
+    }
+  },
+  "battery": {
+    "states": {
+      "good": 70,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}%  ",
+    "format-plugged": "{capacity}%  ",
+    "format-alt": "{time} {icon}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": [" ", " ", " ", " ", " "]
+  },
+  // "battery#bat2": {
+  //   "bat": "BAT2",
+  // },
+  //
+  "group/control": {
+    "orientation": "horizontal",
+    "modules": ["backlight", "pulseaudio", "pulseaudio#microphone"]
+  },
+  //
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": ["  ", "  ", "  ", " ", " ", " ", " ", " ", " "]
+  },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
     "format": "{volume}% {icon} {format_source}",
     "format-bluetooth": "{volume}% {icon} {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
     "format-muted": " {format_source}",
-    //"format-source": " {volume}% ",
-   // "format-source-muted": " ",
+    "format-source": "  {volume}% ",
+    // "format-source-muted": " ",
     "format-icons": {
       "headphone": "☊ ",
       "hands-free": "",
@@ -47,140 +117,100 @@
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "pavucontrol-qt",
   },
-    "pulseaudio#microphone": {
-        "format": "{format_source}",
-        "format-source": "",
-        "format-source-muted": "",
-        "on-click": "pamixer --default-source -m",
-        "on-click-right" : "pamixer -u --default-source u",
-        "on-scroll-up": "pamixer --default-source -i 1",
-        "on-scroll-down": "pamixer --default-source -d 1",
-        "scroll-step": 1,
-        "tooltip": false,
-        //"tooltip-format": " at {volume}%"
-    },
-
-  "custom/app_launcher": {
-    "format": "",
-    "on-click": "sh -c nwg-drawer",
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": "",
+    "format-source-muted": "  ",
+    "on-click": "pamixer --default-source -m",
+    "on-click-right": "pamixer -u --default-source u",
+    "on-scroll-up": "pamixer --default-source -i 1",
+    "on-scroll-down": "pamixer --default-source -d 1",
+    "scroll-step": 1,
     "tooltip": false,
-  },
-  //
-  ////
-  "keyboard-state": {
-    "numlock": true,
-    "capslock": true,
-    "format": "{name} {icon}",
-    "format-icons": {
-      "locked": "",
-      "unlocked": "",
-    },
-  },
-  "clock": {
-    // "timezone": "America/New_York",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}",
-  },
-  "cpu": {
-    "format": "{usage}%  ",
-    "tooltip": false,
-  },
-  "memory": {
-    "format": "{}% ☰ ",
-    "states": {
-      // "good": 95,
-      "warning": 69,
-      "critical": 90,
-      },
-  },
-  "custom/power_menu": {
-    "format": "⏻",
-    "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
-    "tooltip": false
-  },
-  "custom/lock_screen": {
-        "format": " ",
-        "on-click": "sh -c '(sleep 0.5s; hyprlock)' & disown",
-        "tooltip": false
-    },
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{percent}% {icon}",
-    "format-icons": ["  ", "  ", "  ", " ", " ", " ", " ", " ", " "],
-  },
-  "battery": {
-    "states": {
-      "good": 70,
-      "warning": 30,
-      "critical": 15,
-    },
-    "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}%  ",
-    "format-plugged": "{capacity}%  ",
-    "format-alt": "{time} {icon}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-icons": [" ", " ", " ", " ", " "],
-  },
-  "battery#bat2": {
-    "bat": "BAT2",
+    "tooltip-format": " at {volume}%",
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "{essid}  ",
+    "format-wifi": "{essid} ",
     "format-ethernet": "{ipaddr}/{cidr}  ",
-    "tooltip-format": "{ifname} via {gwaddr}  ",
+    "tooltip-format": "{ifname} via {gwaddr}  ", 
     "format-linked": "{ifname} (No IP)  ",
     "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    // "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "format-alt": "{bandwidthDownBytes}⬇/{bandwidthUpBytes}⬆/({signalStrength}%)",
+    "interval": 5,
+    // "max-length": 7,
+    "on-click-right": "nm-applet"
   },
-  "custom/media": {
-    "format": "{icon} {}",
-    "return-type": "json",
-    "max-length": 40,
-    "format-icons": {
-      "spotify": " ",
-      "default": "🎜 ",
+  "clock": {
+    "format": "{:%H:%M}",
+    "format-alt": "{:%A, %B %d, %Y (%R)} ",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+      },
     },
-    "escape": true,
-    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources folder
-    // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-  },
-  "mpd": {
-    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-    "format-disconnected": "Disconnected ",
-    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-    "unknown-tag": "N/A",
-    "interval": 2,
-    "consume-icons": {
-      "on": " ",
-    },
-    "random-icons": {
-      "off": "<span color=\"#f53c3c\"></span> ",
-      "on": " ",
-    },
-    "repeat-icons": {
-      "on": " ",
-    },
-    "single-icons": {
-      "on": "1 ",
-    },
-    "state-icons": {
-      "paused": "",
-      "playing": "",
-    },
-    "tooltip-format": "MPD (connected)",
-    "tooltip-format-disconnected": "MPD (disconnected)",
-  },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": " ",
-      "deactivated": " ",
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down",
     },
   },
-  "tray": {
-    // "icon-size": 21,
-    "spacing": 10,
+  "custom/power_menu": {
+    "format": "⏻ ",
+    "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
+    "tooltip": false,
+  },
+  //
+  // extra
+  //
+  // "custom/lock_screen": {
+  //       "format": " ",
+  //       "on-click": "sh -c '(sleep 0.5s; hyprlock)' & disown",
+  //       "tooltip": false
+  //   },
+  // "keyboard-state": {
+  //   "numlock": true,
+  //   "capslock": true,
+  //   "format": {
+  //     "numlock": "N {icon}",
+  //     "capslock": "C {icon}",
+  //   },
+  //   "format-icons": {
+  //     "locked": "",
+  //     "unlocked": " ",
+  //   },
+  // },
+  // "custom/media": {
+  //   "format": "{icon} {}",
+  //   "escape": true,
+  //   "return-type": "json",
+  //   "max-length": 40,
+  //   "on-click": "playerctl play-pause",
+  //   "on-click-right": "playerctl stop",
+  //   "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
+  //   "on-scroll-up": "playerctl next",
+  //   "on-scroll-down": "playerctl previous",
+  //   "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
+  // },
+  "custom/mpd": {
+    "format": "♪ {}",
+    //"max-length": 15,
+    "interval": 10,
+    "exec": "mpc current",
+    "exec-if": "pgrep mpd",
+    "on-click": "mpc toggle",
+    "on-click-right": "sonata",
   },
 }
