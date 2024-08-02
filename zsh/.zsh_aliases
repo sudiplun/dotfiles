@@ -1,42 +1,25 @@
-#git aliases
-alias ga="git add"
-alias gaa="git add ."
-alias gst="git status"
-alias gcm="git commit -m"
-alias git-ssh="~/git/sh/ssh-key.sh"
-alias gsta "git stash save"
-alias gstaa "git stash apply"
-alias gstd "git stash drop"
-alias gstl "git stash list"
-alias gstp "git stash pop"
-
-#tmux 
-alias t="tmux"
-alias ta="tmux a"
-
+# alias TOOLS
+alias f="fzf"
+alias fi='f --preview="cat {}"'
+#extra
 alias lg="lazygit"
+alias t="tmux"
 alias cm="cmus"
-
-#flatpak aliases
-alias fl="flatpak list"
-alias fu="flatpak uninstall"
-
-# WEB_DEVELOPMENT
-# ----------xampp--------------
-# alias lamppst="sudo /opt/lampp/lampp start"
-# alias lamppsp="sudo /opt/lampp/lampp stop"
-# ---------END------------
-alias lampst="sudo systemctl start httpd && sudo systemctl start mariadb.service"
-alias lampstat="sudo systemctl status httpd && sudo systemctl status mariadb.service"
-alias lampsp="sudo systemctl stop httpd && sudo systemctl stop mariadb.service"
-
-# laravel
-alias pa="php artisan"
-
-# TOOLS
+alias pi="sudo pacman -S"
+alias pu="sudo pacman -Syu"
+alias pr="sudo pacman -Rns"
 alias topdf="soffice --headless --convert-to pdf"
 alias qr-wifi="nmcli device wifi show-password" 
+alias bluetooth="sudo systemctl start bluetooth && blueman-manager"
 # OTHER
 alias egrep="grep -E"
 alias mysql="mariadb"
-
+alias javaSql="java -classpath /usr/share/java/mariadb-jdbc/mariadb-java-client.jar:."
+# Example aliases
+alias light="gsettings set org.gnome.desktop.interface gtk-theme "Adwaita""
+alias dark='gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"'
+alias lampst="sudo systemctl start httpd && sudo systemctl start mariadb.service"
+alias lampstat="sudo systemctl status httpd && sudo systemctl status mariadb.service"
+alias lampsp="sudo systemctl stop httpd && sudo systemctl stop mariadb.service"
+# laravel
+alias pa="php artisan"
