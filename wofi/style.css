@@ -1,6 +1,8 @@
+* {
+  border-radius: 24px;
+}
 window {
   margin: 0px;
-  /* border: 1px solid #bd93f9; */
   background-color: #282a36;
 }
 

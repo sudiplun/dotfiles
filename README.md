@@ -1,8 +1,14 @@
 # dev_config
 
+<!--toc:start-->
+
+- [dev_config](#devconfig)
+  - [🖥️ Software](#🖥️-software)
+  <!--toc:end-->
+
 All the little things
 
-### 🖥️ Software
+## 🖥️ Software
 
 - OS: Arch Linux
 - Terminal: Alacritty
