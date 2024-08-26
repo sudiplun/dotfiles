@@ -29,7 +29,7 @@ window#waybar {
   background: transparent;
 }
 #workspaces button.active {
-  color: @txt;
+  color: @green;
 }
 #idle_inhibitor.activated {
   color: @red;
@@ -48,15 +48,6 @@ window#waybar {
 /* } */
 
 /* Styling elements */
-/* #battery.full { */
-/*   color: @green; */
-/* } */
-#battery.warning {
-  color: @orange;
-}
-#battery.critical {
-  color: @red;
-}
 /*  CPU STYLES */
 #cpu.good {
   color: @green;
@@ -68,12 +59,30 @@ window#waybar {
   color: @red;
 }
 /*  MEMORY style*/
-#memory.good {
-  color: @green;
-}
 #memory.warning {
   color: @orange;
 }
 #memory.critical {
+  color: @red;
+}
+/* BATTERY sytle */
+#battery.full {
+  color: @green;
+}
+#battery.warning {
+  color: @orange;
+}
+#battery.critical {
+  color: @red;
+}
+/* BACKLIGHT */
+#backlight.critical {
+  color: @red;
+}
+#backlight.warning {
+  color: @orange;
+}
+/* PULSEAUDIO STYLES */
+#pulseaudio.critical {
   color: @red;
 }

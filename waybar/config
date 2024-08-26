@@ -6,7 +6,7 @@
   "modules-left": ["custom/app_launcher", "hyprland/workspaces", "custom/cmus"],
   "modules-center": ["idle_inhibitor", "hyprland/window"],
   "modules-right": [
-    "mpd",
+    // "mpd",
     // "custom/media",
     "tray",
     "group/hardware",
@@ -28,7 +28,7 @@
   },
   "custom/cmus": {
     "format": "♪ {}",
-    //"max-length": 15,
+    "max-length": 35,
     "interval": 10,
     "exec": "cmus-remote -C \"format_print '%a - %t'\"", // artist - title
     "exec-if": "pgrep cmus",
@@ -43,9 +43,9 @@
     }
   },
   "hyprland/window": {
-    "format": "{title}"
+    "format": "{title}",
+    "max-length": 100
   },
-  //
   // RIGHT MODULES
   "tray": {
     "spacing": 10
@@ -60,24 +60,24 @@
     "format": "{usage}%  ",
     "tooltip": false,
     "states": {
-      "normal": 30,
+      // MIN-VALUES
       "good": 49,
       "warning": 69,
-      "critical": 100
+      "critical": 90
     },
     "interval": 1
   },
   "memory": {
     "format": "{}% ☰ ",
     "states": {
-      "normal": 39,
-      "good": 69,
-      "warning": 89,
-      "critical": 100
+      // MIN-VALUES
+      "warning": 75,
+      "critical": 90
     },
-    "interval": 2
+    "interval": 1
   },
   "battery": {
+    // MAX-VALUES
     "states": {
       "full": 100,
       "good": 70,
@@ -104,6 +104,11 @@
 
   "backlight": {
     "device": "intel_backlight",
+    "states": {
+      // MIN-VALUES
+      "critical": 90,
+      "warning": 69,
+    },
     "format": "{percent}% {icon}",
     "format-icons": ["  ", "  ", "  ", " ", " ", " ", " ", " ", " "]
   },
@@ -123,8 +128,9 @@
       "default": ["🔈", "🔉", "🔊"]
     },
     "states": {
-      "high": 100,
-      "medium": 80,
+      // MAX-VALUES
+      "critical": 100,
+      "warning": 80 
     },
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "pavucontrol-qt"
@@ -143,14 +149,14 @@
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "{essid} ",
+    "format-wifi": "{essid}  ",
     "format-ethernet": "{ipaddr}/{cidr}  ",
     "tooltip-format": "{ifname} via {gwaddr}  ", 
     "format-linked": "{ifname} (No IP)  ",
     "format-disconnected": "Disconnected ⚠",
     // "format-alt": "{ifname}: {ipaddr}/{cidr}",
     "format-alt": "{bandwidthDownBytes}⬇/{bandwidthUpBytes}⬆/({signalStrength}%)",
-    "interval": 5,
+    "interval": 0.5,
     // "max-length": 7,
     "on-click-right": "nm-applet"
   },
@@ -168,8 +174,8 @@
         "days": "<span color='#ecc6d9'><b>{}</b></span>",
         "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
         "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
-      },
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
     },
     "actions": {
       "on-click-right": "mode",
@@ -184,9 +190,6 @@
     "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
     "tooltip": false
   },
-  //
-  // extra
-  //
   // "custom/lock_screen": {
   //       "format": " ",
   //       "on-click": "sh -c '(sleep 0.5s; hyprlock)' & disown",
@@ -214,15 +217,15 @@
   //   "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
   //   "on-scroll-up": "playerctl next",
   //   "on-scroll-down": "playerctl previous",
-  //   "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
+  //   "exec": "python $HOME/dotfiles/waybar/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
   // },
-  "custom/mpd": {
-    "format": "♪ {}",
-    //"max-length": 15,
-    "interval": 10,
-    "exec": "mpc current",
-    "exec-if": "pgrep mpd",
-    "on-click": "mpc toggle",
-    "on-click-right": "sonata",
-  },
+  // "custom/mpd": {
+  //   "format": "♪ {}",
+  //   "max-length": 15,
+  //   "interval": 10,
+  //   "exec": "mpc current",
+  //   "exec-if": "pgrep mpd",
+  //   "on-click": "mpc toggle",
+  //   "on-click-right": "sonata"
+  // }
 }
