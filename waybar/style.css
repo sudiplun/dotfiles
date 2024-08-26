@@ -4,9 +4,12 @@
 @define-color txtdark #6C7298;
 /* */
 @define-color fg #d8d8d8;
-@define-color red #e06c75;
-@define-color green #98c379;
-@define-color yellow #e5c07b;
+/*  */
+@define-color red #F44336;
+@define-color green #4CAF50;
+/* @define-color soft-green #8BC34A; */
+@define-color orange #FFC107;
+/*  */
 @define-color blue #61afef;
 @define-color magenta #c678dd;
 @define-color cyan #56b6c2;
@@ -40,36 +43,37 @@ window#waybar {
 #power_menu {
   color: @txt;
 }
-#clock {
-  color: @txt;
-}
+/* #clock { */
+/*   color: @txt; */
+/* } */
 
 /* Styling elements */
-#battery.full-charge {
-  color: @red;
-}
-#battery.good {
-  color: @green;
-}
+/* #battery.full { */
+/*   color: @green; */
+/* } */
 #battery.warning {
-  color: @yellow;
+  color: @orange;
 }
-
 #battery.critical {
   color: @red;
 }
-
+/*  CPU STYLES */
+#cpu.good {
+  color: @green;
+}
 #cpu.warning {
-  color: @yellow;
+  color: @orange;
 }
-
-#memory.warning {
-  color: @yellow;
-}
-#memory.critical {
+#cpu.critical {
   color: @red;
 }
-
-#temperature.critical {
+/*  MEMORY style*/
+#memory.good {
+  color: @green;
+}
+#memory.warning {
+  color: @orange;
+}
+#memory.critical {
   color: @red;
 }

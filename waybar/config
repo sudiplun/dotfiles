@@ -1,5 +1,5 @@
 {
-  // "position": "left",
+ // "position": "left",
   "spacing": 5,
   // "width": 1280, // Waybar width
   // Choose the order of the modules
@@ -58,21 +58,31 @@
   // HARDWARE
   "cpu": {
     "format": "{usage}%  ",
-    "tooltip": false
+    "tooltip": false,
+    "states": {
+      "normal": 30,
+      "good": 49,
+      "warning": 69,
+      "critical": 100
+    },
+    "interval": 1
   },
   "memory": {
     "format": "{}% ☰ ",
     "states": {
-      "good": 30,
-      "warning": 69,
-      "critical": 90
-    }
+      "normal": 39,
+      "good": 69,
+      "warning": 89,
+      "critical": 100
+    },
+    "interval": 2
   },
   "battery": {
     "states": {
+      "full": 100,
       "good": 70,
       "warning": 30,
-      "critical": 15
+      "critical": 20
     },
     "format": "{capacity}% {icon}",
     "format-charging": "{capacity}%  ",
@@ -99,12 +109,10 @@
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
-    "format": "{volume}% {icon} {format_source}",
+    "format": "{volume}% {icon}",
     "format-bluetooth": "{volume}% {icon} {format_source}",
     "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
-    "format-source": "  {volume}% ",
-    // "format-source-muted": " ",
+    "format-muted": " ",
     "format-icons": {
       "headphone": "☊ ",
       "hands-free": "",
@@ -112,14 +120,18 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["🔈", "🔉", "🔊"],
+      "default": ["🔈", "🔉", "🔊"]
+    },
+    "states": {
+      "high": 100,
+      "medium": 80,
     },
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "pavucontrol-qt",
+    "on-click-right": "pavucontrol-qt"
   },
   "pulseaudio#microphone": {
     "format": "{format_source}",
-    "format-source": "",
+    "format-source": "{volume}% ",
     "format-source-muted": "  ",
     "on-click": "pamixer --default-source -m",
     "on-click-right": "pamixer -u --default-source u",
@@ -168,9 +180,9 @@
     },
   },
   "custom/power_menu": {
-    "format": "⏻ ",
+    "format": "⏻",
     "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
-    "tooltip": false,
+    "tooltip": false
   },
   //
   // extra
