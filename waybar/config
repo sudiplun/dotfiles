@@ -92,16 +92,10 @@
     // "format-full": "",
     "format-icons": [" ", " ", " ", " ", " "]
   },
-  // "battery#bat2": {
-  //   "bat": "BAT2",
-  // },
-  //
   "group/control": {
     "orientation": "horizontal",
     "modules": ["backlight", "pulseaudio", "pulseaudio#microphone"]
   },
-  //
-
   "backlight": {
     "device": "intel_backlight",
     "states": {
@@ -129,7 +123,7 @@
     },
     "states": {
       // MAX-VALUES
-      "critical": 100,
+      "critical": 105,
       "warning": 80 
     },
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
@@ -138,26 +132,24 @@
   "pulseaudio#microphone": {
     "format": "{format_source}",
     "format-source": "{volume}% ",
-    "format-source-muted": "  ",
+    "format-source-muted": " ",
     "on-click": "pamixer --default-source -m",
     "on-click-right": "pamixer -u --default-source u",
     "on-scroll-up": "pamixer --default-source -i 1",
     "on-scroll-down": "pamixer --default-source -d 1",
     "scroll-step": 1,
     "tooltip": false,
-    "tooltip-format": " at {volume}%",
+    "tooltip-format": " at {volume}%"
   },
   "network": {
-    // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "{essid}  ",
+    "format-wifi": " ",
     "format-ethernet": "{ipaddr}/{cidr}  ",
-    "tooltip-format": "{ifname} via {gwaddr}  ", 
     "format-linked": "{ifname} (No IP)  ",
     "format-disconnected": "Disconnected ⚠",
     // "format-alt": "{ifname}: {ipaddr}/{cidr}",
-    "format-alt": "{bandwidthDownBytes}⬇/{bandwidthUpBytes}⬆/({signalStrength}%)",
-    "interval": 0.5,
-    // "max-length": 7,
+    "format-alt": "{bandwidthDownBytes}⬇/{bandwidthUpBytes}⬆",
+    "tooltip-format-wifi" : "{essid} - ({signalStrength}%)",
+    "tooltip-format": "{ifname} via {gwaddr}  ", 
     "on-click-right": "nm-applet"
   },
   "clock": {
@@ -182,50 +174,12 @@
       "on-click-forward": "tz_up",
       "on-click-backward": "tz_down",
       "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down",
-    },
+      "on-scroll-down": "shift_down"
+    }
   },
   "custom/power_menu": {
     "format": "⏻",
     "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
     "tooltip": false
-  },
-  // "custom/lock_screen": {
-  //       "format": " ",
-  //       "on-click": "sh -c '(sleep 0.5s; hyprlock)' & disown",
-  //       "tooltip": false
-  //   },
-  // "keyboard-state": {
-  //   "numlock": true,
-  //   "capslock": true,
-  //   "format": {
-  //     "numlock": "N {icon}",
-  //     "capslock": "C {icon}",
-  //   },
-  //   "format-icons": {
-  //     "locked": "",
-  //     "unlocked": " ",
-  //   },
-  // },
-  // "custom/media": {
-  //   "format": "{icon} {}",
-  //   "escape": true,
-  //   "return-type": "json",
-  //   "max-length": 40,
-  //   "on-click": "playerctl play-pause",
-  //   "on-click-right": "playerctl stop",
-  //   "smooth-scrolling-threshold": 10, // This value was tested using a trackpad, it should be lowered if using a mouse.
-  //   "on-scroll-up": "playerctl next",
-  //   "on-scroll-down": "playerctl previous",
-  //   "exec": "python $HOME/dotfiles/waybar/mediaplayer.py 2> /dev/null", // Script in resources/custom_modules folder
-  // },
-  // "custom/mpd": {
-  //   "format": "♪ {}",
-  //   "max-length": 15,
-  //   "interval": 10,
-  //   "exec": "mpc current",
-  //   "exec-if": "pgrep mpd",
-  //   "on-click": "mpc toggle",
-  //   "on-click-right": "sonata"
-  // }
+  }
 }

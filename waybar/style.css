@@ -1,19 +1,30 @@
-/*    COLOR DEFINE */
-@define-color bgcolor #7987A1;
-@define-color txt #b4befe;
-@define-color txtdark #6C7298;
-/* */
-@define-color fg #d8d8d8;
-/*  */
-@define-color red #F44336;
-@define-color green #4CAF50;
-/* @define-color soft-green #8BC34A; */
-@define-color orange #FFC107;
-/*  */
-@define-color blue #61afef;
-@define-color magenta #c678dd;
-@define-color cyan #56b6c2;
-@define-color white #abb2bf;
+/* catppuccin Mocha color */
+@define-color rosewater #f5e0dc;
+@define-color flamingo #f2cdcd;
+@define-color pink #f5c2e7;
+@define-color mauve #cba6f7;
+@define-color red #f38ba8;
+@define-color maroon #eba0ac;
+@define-color peach #fab387;
+@define-color yellow #f9e2af;
+@define-color green #a6e3a1;
+@define-color teal #94e2d5;
+@define-color sky #89dceb;
+@define-color sapphire #74c7ec;
+@define-color blue #89b4fa;
+@define-color lavender #b4befe;
+@define-color text #cdd6f4;
+@define-color subtext1 #bac2de;
+@define-color subtext0 #a6adc8;
+@define-color overlay2 #9399b2;
+@define-color overlay1 #7f849c;
+@define-color overlay0 #6c7086;
+@define-color surface2 #585b70;
+@define-color surface1 #45475a;
+@define-color surface0 #313244;
+@define-color base #1e1e2e;
+@define-color mantle #181825;
+@define-color crust #11111b;
 
 * {
   margin: 0;
@@ -29,7 +40,7 @@ window#waybar {
   background: transparent;
 }
 #workspaces button.active {
-  color: @green;
+  color: @teal;
 }
 #idle_inhibitor.activated {
   color: @red;
@@ -37,15 +48,15 @@ window#waybar {
 #hardware,
 #control {
   border-radius: 20px;
-  color: @txt;
+  color: @subtext1;
 }
 #network,
 #power_menu {
-  color: @txt;
+  color: @subtext1;
 }
-/* #clock { */
-/*   color: @txt; */
-/* } */
+#clock {
+  color: @subtext1;
+}
 
 /* Styling elements */
 /*  CPU STYLES */
@@ -53,14 +64,14 @@ window#waybar {
   color: @green;
 }
 #cpu.warning {
-  color: @orange;
+  color: @peach;
 }
 #cpu.critical {
   color: @red;
 }
 /*  MEMORY style*/
 #memory.warning {
-  color: @orange;
+  color: @peach;
 }
 #memory.critical {
   color: @red;
@@ -70,7 +81,7 @@ window#waybar {
   color: @green;
 }
 #battery.warning {
-  color: @orange;
+  color: @peach;
 }
 #battery.critical {
   color: @red;
@@ -80,7 +91,7 @@ window#waybar {
   color: @red;
 }
 #backlight.warning {
-  color: @orange;
+  color: @peach;
 }
 /* PULSEAUDIO STYLES */
 #pulseaudio.critical {
