@@ -1,6 +1,8 @@
 # alias TOOLS
 alias f="fzf"
 alias fi='f --preview="cat {}"'
+#systemd
+alias systemctl-run='systemctl list-units  --type=service  --state=running'
 #extra
 alias lg="lazygit"
 alias t="tmux"
@@ -16,10 +18,12 @@ alias egrep="grep -E"
 alias mysql="mariadb"
 alias javaSql="java -classpath /usr/share/java/mariadb-jdbc/mariadb-java-client.jar:."
 # Example aliases
-alias light="gsettings set org.gnome.desktop.interface gtk-theme "Adwaita""
+alias light="gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'"
 alias dark='gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"'
 alias lampst="sudo systemctl start httpd && sudo systemctl start mariadb.service"
 alias lampstat="sudo systemctl status httpd && sudo systemctl status mariadb.service"
 alias lampsp="sudo systemctl stop httpd && sudo systemctl stop mariadb.service"
 # laravel
 alias pa="php artisan"
+#
+alias npm="deno"
