@@ -1,5 +1,7 @@
 return { -- Collection of various small independent plugins/modules
 	"echasnovski/mini.nvim",
+	lazy = true, -- Disable loading at startup
+	event = { "BufReadPre", "BufNewFile" }, -- Load when opening a file or creating a new one
 	config = function()
 		-- Better Around/Inside textobjects
 		--
@@ -15,6 +17,16 @@ return { -- Collection of various small independent plugins/modules
 		-- - sd'   - [S]urround [D]elete [']quotes
 		-- - sr)'  - [S]urround [R]eplace [)] [']
 		require("mini.surround").setup()
+
+		-- buffer tabline
+		require("mini.tabline").setup()
+
+		-- file tree
+		require("mini.files").setup()
+		-- Map the key `-` in normal mode to open MiniFiles
+		vim.keymap.set("n", "-", function()
+			require("mini.files").open()
+		end, { desc = "Open MiniFiles" })
 
 		-- Simple and easy statusline.
 		--  You could remove this setup call if you don't like it,

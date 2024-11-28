@@ -1,5 +1,19 @@
 return { -- Highlight, edit, and navigate code
+	{
+		"folke/which-key.nvim",
+		lazy = true,
+		event = "VeryLazy",
+		opts = {
+			spec = {
+				{ "<BS>", desc = "Decrement Selection", mode = "x" },
+				{ "<c-space>", desc = "Increment Selection", mode = { "x", "n" } },
+			},
+		},
+	},
+
 	"nvim-treesitter/nvim-treesitter",
+	lazy = true,
+	event = "VeryLazy",
 	build = ":TSUpdate",
 	main = "nvim-treesitter.configs", -- Sets main module to use for opts
 	-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
@@ -7,33 +21,34 @@ return { -- Highlight, edit, and navigate code
 		ensure_installed = {
 			"bash",
 			"c",
+			"css",
 			"diff",
 			"html",
 			"javascript",
-			"tsx",
+			"json",
+			"jsonc",
+			"jsx",
 			"lua",
 			"luadoc",
 			"markdown",
 			"markdown_inline",
-			"query",
+			"typescript",
+			"toml",
 			"vim",
-			"vimdoc",
 		},
 		-- Autoinstall languages that are not installed
 		auto_install = true,
+		autotag = { enable = true },
 		highlight = {
 			enable = true,
-			-- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-			--  If you are experiencing weird indenting issues, add the language to
-			--  the list of additional_vim_regex_highlighting and disabled languages for indent.
-			additional_vim_regex_highlighting = { "ruby" },
 		},
-		indent = { enable = true, disable = { "ruby" } },
+		indent = { enable = true },
 	},
-	-- There are additional nvim-treesitter modules that you can use to interact
-	-- with nvim-treesitter. You should go explore a few and see what interests you:
-	--
-	--    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-	--    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-	--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+
+	-- Automatically add closing tags for HTML and JSX
+	{
+		"windwp/nvim-ts-autotag",
+		lazy = true,
+		event = "VeryLazy",
+	},
 }
