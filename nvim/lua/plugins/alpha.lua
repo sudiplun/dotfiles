@@ -11,7 +11,7 @@ return {
 		opts = function()
 			local dashboard = require("alpha.themes.dashboard")
 			local logo = [[
-          Neovim 
+      Don't be lazy
       ]]
 
 			dashboard.section.header.val = vim.split(logo, "\n")

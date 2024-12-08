@@ -1,4 +1,5 @@
 return { -- Highlight, edit, and navigate code
+
 	{
 		"folke/which-key.nvim",
 		lazy = true,
@@ -12,11 +13,12 @@ return { -- Highlight, edit, and navigate code
 	},
 
 	"nvim-treesitter/nvim-treesitter",
-	lazy = true,
-	event = "VeryLazy",
+	--	lazy = true,
+	event = "BufReadPre",
 	build = ":TSUpdate",
 	main = "nvim-treesitter.configs", -- Sets main module to use for opts
 	-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
+	---@diagnostic disable
 	opts = {
 		ensure_installed = {
 			"bash",
@@ -49,6 +51,23 @@ return { -- Highlight, edit, and navigate code
 	{
 		"windwp/nvim-ts-autotag",
 		lazy = true,
-		event = "VeryLazy",
+		--event = { "BufReadPre", "BufNewFile" }, -- Load only for project files
+		ft = {
+			"astro",
+			"glimmer",
+			"handlebars",
+			"html",
+			"javascript",
+			"jsx",
+			"markdown",
+			"php",
+			"rescript",
+			"svelte",
+			"tsx",
+			"twig",
+			"typescript",
+			"vue",
+			"xml",
+		},
 	},
 }

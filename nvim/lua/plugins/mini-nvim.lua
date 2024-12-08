@@ -1,7 +1,7 @@
 return { -- Collection of various small independent plugins/modules
 	"echasnovski/mini.nvim",
 	lazy = true, -- Disable loading at startup
-	event = { "BufReadPre", "BufNewFile" }, -- Load when opening a file or creating a new one
+	event = { "InsertEnter" }, -- Load when opening a file or creating a new one
 	config = function()
 		-- Better Around/Inside textobjects
 		--
@@ -23,14 +23,14 @@ return { -- Collection of various small independent plugins/modules
 
 		-- file tree
 		require("mini.files").setup()
-		-- Map the key `-` in normal mode to open MiniFiles
 		vim.keymap.set("n", "-", function()
-			require("mini.files").open()
-		end, { desc = "Open MiniFiles" })
+			-- focus on buffer path
+			local buf_name = vim.api.nvim_buf_get_name(0)
+			local path = vim.fn.filereadable(buf_name) == 1 and buf_name or vim.fn.getcwd()
+			MiniFiles.open(path)
+			MiniFiles.reveal_cwd()
+		end, { desc = "Open Mini Files" })
 
-		-- Simple and easy statusline.
-		--  You could remove this setup call if you don't like it,
-		--  and try some other statusline plugin
 		local statusline = require("mini.statusline")
 		-- set use_icons to true if you have a Nerd Font
 		statusline.setup({ use_icons = vim.g.have_nerd_font })
