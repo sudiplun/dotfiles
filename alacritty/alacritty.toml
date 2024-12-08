@@ -1,29 +1,27 @@
-import = [
-    "~/.config/alacritty/themes/themes/catppuccin_mocha.toml"
-]
+import = ["~/.config/alacritty/themes/themes/nord.toml"]
 [font]
-size= 12.0
-normal= { family= "JetBrains Mono", style="Regular" }
-bold= { family= "JetBrains Mono", style="Bold" }
-italic= { family= "JetBrains Mono", style="Italic" }
-bold_italic= { family= "JetBrains Mono", style= "Bold  Italic"}
+size = 13.0
+normal = { family = "JetBrains Mono ", style = "Regular" }
+bold = { family = "JetBrains Mono ", style = "Bold" }
+italic = { family = "JetBrains Mono ", style = "Italic" }
+bold_italic = { family = "JetBrains Mono ", style = "Bold  Italic" }
 
-[selection]
-save_to_clipboard = true
+# [selection]
+# save_to_clipboard = true
 
 [window]
-# padding = { x = 3, y = 3 }
-# dimensions= {columns= 120, lines=45}
 decorations = "none"
-opacity = 0.7
-blur= true
+dynamic_padding = true
 
+
+#cursor
+[cursor]
+style = { blinking = "On" }
+
+#keyboard
 [keyboard]
 bindings = [
-    { key = "Q", mods = "Control | Shift", action = "Quit" },
-    { key = "M", mods = "Control | Shift", action = "Minimize" },
-    { key = "Return", mods = "Control", action = "ToggleFullscreen" },
-    # { key = "V", mods = "Control", action = "ToggleViMode" },
-    { key = "N", mods = "Control", action = "SearchFocusNext" },
-    { key = "P", mods = "Control", action = "SearchFocusPrevious" },
+  { key = "H", mods = "Control|Shift", action = "SearchFocusNext" },
+  { key = "L", mods = "Control|Shift", action = "SearchFocusPrevious" },
+  { key = "V", mods = "Control|Alt", action = "ToggleViMode" },
 ]

@@ -1,10 +1,17 @@
 {
- // "position": "left",
+  // "position": "left",
   "spacing": 5,
   // "width": 1280, // Waybar width
   // Choose the order of the modules
-  "modules-left": ["custom/app_launcher", "hyprland/workspaces", "custom/cmus"],
-  "modules-center": ["idle_inhibitor", "hyprland/window"],
+  "modules-left": [
+    //"custom/app_launcher",
+    "hyprland/workspaces",
+    "custom/cmus"
+  ],
+  "modules-center": [
+    "idle_inhibitor",
+    "hyprland/window"
+  ],
   "modules-right": [
     // "mpd",
     // "custom/media",
@@ -13,7 +20,7 @@
     "group/control",
     "network",
     "clock",
-    "custom/power_menu"
+    "custom/power"
     //"custom/lock_screen",
   ],
   "custom/app_launcher": {
@@ -23,6 +30,14 @@
   },
   "hyprland/workspaces": {
     "format": "{icon}",
+    "format-icons": {
+      "2": "",
+      "3": "",
+      "4": "🗁 ",
+      "7": "",
+      "8": "",
+    //"active": "",
+    },
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1"
   },
@@ -53,7 +68,12 @@
   //
   "group/hardware": {
     "orientation": "horizontal",
-    "modules": ["cpu", "memory", "battery", "keyboard-state"]
+    "modules": [
+      "cpu",
+      "memory",
+      "battery",
+      "keyboard-state"
+    ]
   },
   // HARDWARE
   "cpu": {
@@ -90,11 +110,21 @@
     "format-alt": "{time} {icon}",
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
-    "format-icons": [" ", " ", " ", " ", " "]
+    "format-icons": [
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
+    ]
   },
   "group/control": {
     "orientation": "horizontal",
-    "modules": ["backlight", "pulseaudio", "pulseaudio#microphone"]
+    "modules": [
+      "backlight",
+      "pulseaudio",
+      "pulseaudio#microphone"
+    ]
   },
   "backlight": {
     "device": "intel_backlight",
@@ -104,7 +134,17 @@
       "warning": 69,
     },
     "format": "{percent}% {icon}",
-    "format-icons": ["  ", "  ", "  ", " ", " ", " ", " ", " ", " "]
+    "format-icons": [
+      "  ",
+      "  ",
+      "  ",
+      " ",
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
+    ]
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
@@ -119,12 +159,16 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["🔈", "🔉", "🔊"]
+      "default": [
+        "🔈",
+        "🔉",
+        "🔊"
+      ]
     },
     "states": {
       // MAX-VALUES
       "critical": 105,
-      "warning": 80 
+      "warning": 80
     },
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "pavucontrol-qt"
@@ -148,8 +192,8 @@
     "format-disconnected": "Disconnected ⚠",
     // "format-alt": "{ifname}: {ipaddr}/{cidr}",
     "format-alt": "{bandwidthDownBytes}⬇/{bandwidthUpBytes}⬆",
-    "tooltip-format-wifi" : "{essid} - ({signalStrength}%)",
-    "tooltip-format": "{ifname} via {gwaddr}  ", 
+    "tooltip-format-wifi": "{essid} - ({signalStrength}%)",
+    "tooltip-format": "{ifname} via {gwaddr}  ",
     "on-click-right": "nm-applet"
   },
   "clock": {
@@ -177,9 +221,17 @@
       "on-scroll-down": "shift_down"
     }
   },
-  "custom/power_menu": {
+  "custom/power": {
     "format": "⏻",
-    "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
-    "tooltip": false
+    // "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+    "menu-actions": {
+      "shutdown": "shutdown",
+      "reboot": "reboot",
+      "suspend": "systemctl suspend",
+      "hibernate": "systemctl hibernate"
+    }
   }
 }

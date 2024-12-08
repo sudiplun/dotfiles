@@ -35,25 +35,35 @@
   font-size: 13px;
   min-height: 14px;
 }
+
 /* VISUAL */
 window#waybar {
   background: transparent;
 }
+
+#workspace {
+  color: @text;
+}
+
 #workspaces button.active {
   color: @teal;
 }
+
 #idle_inhibitor.activated {
   color: @red;
 }
+
 #hardware,
 #control {
   border-radius: 20px;
   color: @subtext1;
 }
+
 #network,
 #power_menu {
   color: @subtext1;
 }
+
 #clock {
   color: @subtext1;
 }
@@ -63,36 +73,46 @@ window#waybar {
 #cpu.good {
   color: @green;
 }
+
 #cpu.warning {
   color: @peach;
 }
+
 #cpu.critical {
   color: @red;
 }
+
 /*  MEMORY style*/
 #memory.warning {
   color: @peach;
 }
+
 #memory.critical {
   color: @red;
 }
+
 /* BATTERY sytle */
 #battery.full {
   color: @green;
 }
+
 #battery.warning {
   color: @peach;
 }
+
 #battery.critical {
   color: @red;
 }
+
 /* BACKLIGHT */
 #backlight.critical {
   color: @red;
 }
+
 #backlight.warning {
   color: @peach;
 }
+
 /* PULSEAUDIO STYLES */
 #pulseaudio.critical {
   color: @red;
