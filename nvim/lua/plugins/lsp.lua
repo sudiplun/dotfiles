@@ -30,17 +30,10 @@ return {
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
+			--load from lsp/servers
 			local servers = {
-				vtsls = {},
-				lua_ls = {
-					settings = {
-						Lua = {
-							completion = {
-								callSnippet = "Replace",
-							},
-						},
-					},
-				},
+				require("plugins.lsp.servers.vtsls"),
+				require("plugins.lsp.servers.lua_ls"),
 			}
 
 			require("mason").setup()
