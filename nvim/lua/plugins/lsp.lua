@@ -1,29 +1,20 @@
--- if true then
--- 	return {}
--- end
 return {
-	"folke/lazydev.nvim",
-	ft = "lua",
-	opts = {
-		library = {
-			{ path = "luvit-meta/library", words = { "vim%.uv" } },
-		},
-	},
-	{ "Bilal2453/luvit-meta", lazy = true },
-
 	{ -- lsp config
 		"neovim/nvim-lspconfig",
 		lazy = true,
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
+			--LSP Support
 			{ "williamboman/mason.nvim", config = true },
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
+
+			--Extensible UI for Neovim notifications and LSP progress messages.
 			{ "j-hui/fidget.nvim", opts = {} },
-			"hrsh7th/cmp-nvim-lsp",
 		},
+
 		config = function()
-			require("plugins.lsp.lsp-keymaps").setup()
+			require("plugins.lsp.lsp-remaps").setup()
 
 			-- info neovim what LSP is capabile
 			-- Capabilities and server configurations
@@ -32,8 +23,38 @@ return {
 
 			--load from lsp/servers
 			local servers = {
-				require("plugins.lsp.servers.vtsls"),
-				require("plugins.lsp.servers.lua_ls"),
+
+				--lua lsp
+				lua_ls = {
+					settings = {
+						Lua = {
+							-- Improve completion
+							completion = {
+								callSnippet = "Replace",
+							},
+
+							-- Diagnostics configuration
+							diagnostics = {
+								-- Recognize the vim global
+								globals = { "vim" },
+
+								-- Disable specific warnings
+								disable = {
+									"missing-fields",
+									"incomplete-signature-doc",
+								},
+							},
+							-- Improve type checking
+							typeChecking = {
+								enable = true,
+							},
+						},
+					},
+				},
+
+				-- vtls
+				vtsls = {},
+				-- end of ts lsp
 			}
 
 			require("mason").setup()

@@ -18,8 +18,10 @@ end)
 
 opt.tabstop = 2
 opt.softtabstop = 2
-opt.shiftwidth = 2
+opt.shiftwidth = 4
 opt.expandtab = true
+
+opt.termguicolors = true
 
 -- Save undo history
 opt.undofile = true
@@ -29,7 +31,7 @@ opt.ignorecase = true
 opt.smartcase = true
 
 -- Keep signcolumn on by default
--- opt.signcolumn = "yes"
+opt.signcolumn = "yes"
 
 -- Decrease update time
 opt.updatetime = 250

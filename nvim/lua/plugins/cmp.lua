@@ -3,6 +3,11 @@ return { -- Autocompletion
 	"hrsh7th/nvim-cmp",
 	event = "LspAttach",
 	dependencies = {
+
+		-- Autocompletion
+		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-buffer",
+
 		{
 			"L3MON4D3/LuaSnip",
 			build = (function()
@@ -20,10 +25,12 @@ return { -- Autocompletion
 				},
 			},
 		},
+
 		"saadparwaiz1/cmp_luasnip",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-path",
 	},
+
 	config = function()
 		local cmp = require("cmp")
 		local luasnip = require("luasnip")
@@ -66,6 +73,7 @@ return { -- Autocompletion
 				{ name = "nvim_lsp" },
 				{ name = "luasnip" },
 				{ name = "path" },
+				{ name = "buffer" },
 			},
 		})
 	end,

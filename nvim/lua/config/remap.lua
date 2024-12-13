@@ -1,14 +1,18 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
---move line up-down in visual mode
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-
 local map = vim.keymap.set
+
+--move line up-down in visual mode
+map("v", "J", ":m '>+1<CR>gv=gv")
+map("v", "K", ":m '<-2<CR>gv=gv")
 
 --Exit insert mode without hitting escape
 map("i", "jk", "<Esc>", { desc = "Esc" })
+
+-- map({ "n", "x" }, "<leader>y", [["+y]]) -- yank to clipboard register ("+)
+-- map({ "n", "x" }, "<leader>d", [["+d]]) -- delete to clipboard register ("+)
+-- map({ "n", "x" }, "<leader>p", [["+p]]) -- put from clipboard register ("+=)
 
 -- file mananger
 map("n", "<leader>pv", vim.cmd.Ex, { desc = "Toggle open netrw" })
@@ -39,17 +43,15 @@ map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 map("n", "<leader>bo", "<cmd>%bd|e#<cr>", { desc = "Close all buffers but not current one" })
--- map("n", "<leader>`", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-map("n", "<leader>bd", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
+-- replace by snacks buf
+-- map("n", "<leader>bD", "<cmd>:bd!<cr>", { desc = "Delete Buffer and Window(!save file)" }) -- not others buffer
+-- map("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "delete the buffer" })
 
 -- save file
--- map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 -- quit
--- map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
+--map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 
 -- windows
 map("n", "<leader>w", "<c-w>", { desc = "Windows", remap = true })
--- map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
--- map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 map("n", "<leader>wd", "<C-W>c", { desc = "Delete Window", remap = true })
--- LazyVim.ui.maximize():map("<leader>wm")

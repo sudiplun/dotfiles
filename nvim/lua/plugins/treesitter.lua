@@ -1,19 +1,6 @@
 return { -- Highlight, edit, and navigate code
-
-	{
-		"folke/which-key.nvim",
-		lazy = true,
-		event = "VeryLazy",
-		opts = {
-			spec = {
-				{ "<BS>", desc = "Decrement Selection", mode = "x" },
-				{ "<c-space>", desc = "Increment Selection", mode = { "x", "n" } },
-			},
-		},
-	},
-
 	"nvim-treesitter/nvim-treesitter",
-	--	lazy = true,
+	lazy = true,
 	event = "BufReadPre",
 	build = ":TSUpdate",
 	main = "nvim-treesitter.configs", -- Sets main module to use for opts
@@ -22,52 +9,33 @@ return { -- Highlight, edit, and navigate code
 	opts = {
 		ensure_installed = {
 			"bash",
-			"c",
 			"css",
-			"diff",
 			"html",
 			"javascript",
 			"json",
 			"jsonc",
-			"jsx",
+			"tsx",
 			"lua",
 			"luadoc",
 			"markdown",
-			"markdown_inline",
 			"typescript",
 			"toml",
 			"vim",
 		},
+		sync_install = false,
 		-- Autoinstall languages that are not installed
 		auto_install = true,
 		autotag = { enable = true },
 		highlight = {
 			enable = true,
+			disable = function(lang, buf)
+				local max_filesize = 100 * 1024 -- 100 KB
+				local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+				if ok and stats and stats.size > max_filesize then
+					return true
+				end
+			end,
 		},
 		indent = { enable = true },
-	},
-
-	-- Automatically add closing tags for HTML and JSX
-	{
-		"windwp/nvim-ts-autotag",
-		lazy = true,
-		--event = { "BufReadPre", "BufNewFile" }, -- Load only for project files
-		ft = {
-			"astro",
-			"glimmer",
-			"handlebars",
-			"html",
-			"javascript",
-			"jsx",
-			"markdown",
-			"php",
-			"rescript",
-			"svelte",
-			"tsx",
-			"twig",
-			"typescript",
-			"vue",
-			"xml",
-		},
 	},
 }
