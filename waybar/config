@@ -1,237 +1,238 @@
 {
-  // "position": "left",
-  "spacing": 5,
-  // "width": 1280, // Waybar width
-  // Choose the order of the modules
-  "modules-left": [
-    //"custom/app_launcher",
-    "hyprland/workspaces",
-    "custom/cmus"
-  ],
-  "modules-center": [
-    "idle_inhibitor",
-    "hyprland/window"
-  ],
-  "modules-right": [
-    // "mpd",
-    // "custom/media",
-    "tray",
-    "group/hardware",
-    "group/control",
-    "network",
-    "clock",
-    "custom/power"
-    //"custom/lock_screen",
-  ],
-  "custom/app_launcher": {
-    "format": " ",
-    "on-click": "sh -c nwg-drawer",
-    "tooltip": false
-  },
-  "hyprland/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "2": "",
-      "3": "",
-      "4": "🗁 ",
-      "7": "",
-      "8": "",
-    //"active": "",
+    // "position": "left",
+    "spacing": 5,
+    // "width": 1280, // Waybar width
+    // Choose the order of the modules
+    "modules-left": [
+        //"custom/app_launcher",
+        "hyprland/workspaces",
+        "custom/cmus"
+    ],
+    "modules-center": [
+        "idle_inhibitor",
+        "hyprland/window"
+    ],
+    "modules-right": [
+        // "mpd",
+        // "custom/media",
+        "tray",
+        "group/hardware",
+        "group/control",
+        "network",
+        "clock",
+        "custom/power"
+        //"custom/lock_screen",
+    ],
+    //"custom/app_launcher": {
+    //    "format": " ",
+    //    "on-click": "sh -c nwg-drawer",
+    //    "tooltip": false
+    //},
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "2": "",
+            "3": "",
+            "4": "🗁 ",
+            "7": "",
+            "8": "",
+            //"active": "",
+        },
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1"
     },
-    "on-scroll-up": "hyprctl dispatch workspace e+1",
-    "on-scroll-down": "hyprctl dispatch workspace e-1"
-  },
-  "custom/cmus": {
-    "format": "♪ {}",
-    "max-length": 35,
-    "interval": 10,
-    "exec": "cmus-remote -C \"format_print '%a - %t'\"", // artist - title
-    "exec-if": "pgrep cmus",
-    "on-click": "cmus-remote -u", //toggle pause
-    "escape": true //handle markup entities
-  },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "  ",
-      "deactivated": "  "
+    "custom/cmus": {
+        "format": "♪ {}",
+        "max-length": 35,
+        "interval": 10,
+        "exec": "cmus-remote -C \"format_print '%a - %t'\"", // artist - title
+        "exec-if": "pgrep cmus",
+        "on-click": "cmus-remote -u", //toggle pause
+        "escape": true //handle markup entities
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "  ",
+            "deactivated": "  "
+        }
+    },
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 100
+    },
+    // RIGHT MODULES
+    "tray": {
+        "spacing": 10
+    },
+    //
+    "group/hardware": {
+        "orientation": "horizontal",
+        "modules": [
+            "cpu",
+            "memory",
+            "battery",
+            "keyboard-state"
+        ]
+    },
+    // HARDWARE
+    "cpu": {
+        "format": "{usage}%  ",
+        "tooltip": false,
+        "states": {
+            // MIN-VALUES
+            "good": 49,
+            "warning": 69,
+            "critical": 90
+        },
+        "interval": 3
+    },
+    "memory": {
+        "format": "{}% ☰ ",
+        "states": {
+            // MIN-VALUES
+            "warning": 75,
+            "critical": 90
+        },
+        "interval": 3
+    },
+    "battery": {
+        // MAX-VALUES
+        "states": {
+            "full": 100,
+            "good": 70,
+            "warning": 30,
+            "critical": 20
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}%  ",
+        "format-plugged": "{capacity}%  ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": [
+            " ",
+            " ",
+            " ",
+            " ",
+            " "
+        ]
+    },
+    "group/control": {
+        "orientation": "horizontal",
+        "modules": [
+            "backlight",
+            //"pulseaudio",
+            "wireplumber",
+            "pulseaudio#microphone"
+        ]
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "states": {
+            // MIN-VALUES
+            "critical": 90,
+            "warning": 69
+        },
+        "format": "{percent}% {icon}",
+        "format-icons": [
+            "  ",
+            "  ",
+            "  ",
+            " ",
+            " ",
+            " ",
+            " ",
+            " ",
+            " "
+        ]
+    },
+    "wireplumber": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " ",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": "",
+            "headset": " ",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "󰖀 ",
+                "󰕾 ",
+                "🔊"
+            ]
+        },
+        "states": {
+            // MAX-VALUES
+            "critical": 105,
+            "warning": 80
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "pavucontrol-qt"
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": "{volume}% ",
+        "format-source-muted": " ",
+        "on-click": "pamixer --default-source -m",
+        "on-click-right": "pamixer -u --default-source u",
+        "on-scroll-up": "pamixer --default-source -i 1",
+        "on-scroll-down": "pamixer --default-source -d 1",
+        "scroll-step": 1,
+        "tooltip": false,
+        "tooltip-format": " at {volume}%"
+    },
+    "network": {
+        "format-wifi": " ",
+        "format-ethernet": "{ipaddr}/{cidr}  ",
+        "format-linked": "{ifname} (No IP)  ",
+        "format-disconnected": "Disconnected ⚠",
+        // "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "format-alt": "{bandwidthDownBytes}⬇/{bandwidthUpBytes}⬆",
+        "tooltip-format-wifi": "{essid} - ({signalStrength}%)",
+        "tooltip-format": "{ifname} via {gwaddr}  ",
+        "on-click-right": "nm-applet"
+    },
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%A, %B %d, %Y (%R)} ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-click-forward": "tz_up",
+            "on-click-backward": "tz_down",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+    "custom/power": {
+        "format": "⏻",
+        // "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+        "menu-actions": {
+            "shutdown": "shutdown now",
+            "reboot": "reboot",
+            "suspend": "systemctl suspend",
+            "hibernate": "systemctl hibernate"
+        }
     }
-  },
-  "hyprland/window": {
-    "format": "{title}",
-    "max-length": 100
-  },
-  // RIGHT MODULES
-  "tray": {
-    "spacing": 10
-  },
-  //
-  "group/hardware": {
-    "orientation": "horizontal",
-    "modules": [
-      "cpu",
-      "memory",
-      "battery",
-      "keyboard-state"
-    ]
-  },
-  // HARDWARE
-  "cpu": {
-    "format": "{usage}%  ",
-    "tooltip": false,
-    "states": {
-      // MIN-VALUES
-      "good": 49,
-      "warning": 69,
-      "critical": 90
-    },
-    "interval": 1
-  },
-  "memory": {
-    "format": "{}% ☰ ",
-    "states": {
-      // MIN-VALUES
-      "warning": 75,
-      "critical": 90
-    },
-    "interval": 1
-  },
-  "battery": {
-    // MAX-VALUES
-    "states": {
-      "full": 100,
-      "good": 70,
-      "warning": 30,
-      "critical": 20
-    },
-    "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}%  ",
-    "format-plugged": "{capacity}%  ",
-    "format-alt": "{time} {icon}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    "format-icons": [
-      " ",
-      " ",
-      " ",
-      " ",
-      " "
-    ]
-  },
-  "group/control": {
-    "orientation": "horizontal",
-    "modules": [
-      "backlight",
-      "pulseaudio",
-      "pulseaudio#microphone"
-    ]
-  },
-  "backlight": {
-    "device": "intel_backlight",
-    "states": {
-      // MIN-VALUES
-      "critical": 90,
-      "warning": 69,
-    },
-    "format": "{percent}% {icon}",
-    "format-icons": [
-      "  ",
-      "  ",
-      "  ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " ",
-      " "
-    ]
-  },
-  "pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
-    "format": "{volume}% {icon}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " ",
-    "format-icons": {
-      "headphone": "☊ ",
-      "hands-free": "",
-      "headset": " ",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": [
-        "🔈",
-        "🔉",
-        "🔊"
-      ]
-    },
-    "states": {
-      // MAX-VALUES
-      "critical": 105,
-      "warning": 80
-    },
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-    "on-click-right": "pavucontrol-qt"
-  },
-  "pulseaudio#microphone": {
-    "format": "{format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": " ",
-    "on-click": "pamixer --default-source -m",
-    "on-click-right": "pamixer -u --default-source u",
-    "on-scroll-up": "pamixer --default-source -i 1",
-    "on-scroll-down": "pamixer --default-source -d 1",
-    "scroll-step": 1,
-    "tooltip": false,
-    "tooltip-format": " at {volume}%"
-  },
-  "network": {
-    "format-wifi": " ",
-    "format-ethernet": "{ipaddr}/{cidr}  ",
-    "format-linked": "{ifname} (No IP)  ",
-    "format-disconnected": "Disconnected ⚠",
-    // "format-alt": "{ifname}: {ipaddr}/{cidr}",
-    "format-alt": "{bandwidthDownBytes}⬇/{bandwidthUpBytes}⬆",
-    "tooltip-format-wifi": "{essid} - ({signalStrength}%)",
-    "tooltip-format": "{ifname} via {gwaddr}  ",
-    "on-click-right": "nm-applet"
-  },
-  "clock": {
-    "format": "{:%H:%M}",
-    "format-alt": "{:%A, %B %d, %Y (%R)} ",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
-    "calendar": {
-      "mode": "year",
-      "mode-mon-col": 3,
-      "weeks-pos": "right",
-      "on-scroll": 1,
-      "format": {
-        "months": "<span color='#ffead3'><b>{}</b></span>",
-        "days": "<span color='#ecc6d9'><b>{}</b></span>",
-        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
-      }
-    },
-    "actions": {
-      "on-click-right": "mode",
-      "on-click-forward": "tz_up",
-      "on-click-backward": "tz_down",
-      "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down"
-    }
-  },
-  "custom/power": {
-    "format": "⏻",
-    // "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
-    "tooltip": false,
-    "menu": "on-click",
-    "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-    "menu-actions": {
-      "shutdown": "shutdown now",
-      "reboot": "reboot",
-      "suspend": "systemctl suspend",
-      "hibernate": "systemctl hibernate"
-    }
-  }
 }

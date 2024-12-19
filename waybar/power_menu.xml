@@ -12,13 +12,18 @@
             </object>
         </child>
         <child>
-            <object class="GtkMenuItem" id="shutdown">
+            <object class="GtkMenuItem" id="shutdown now">
                 <property name="label">Shutdown</property>
             </object>
         </child>
         <child>
             <object class="GtkSeparatorMenuItem" id="delimiter1" />
         </child>
+        <child>
+                <object class="GtkMenuItem" id="hyprctl dispatch exit 0">
+                <property name="label">logout</property>
+                </object>
+            </child>
         <child>
             <object class="GtkMenuItem" id="reboot">
                 <property name="label">Reboot</property>

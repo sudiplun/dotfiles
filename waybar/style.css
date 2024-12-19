@@ -40,9 +40,11 @@
 window#waybar {
   background: transparent;
 }
-
+window {
+    color: @text;
+}
 #workspace {
-  color: @text;
+  color: @subtle;
 }
 
 #workspaces button.active {
