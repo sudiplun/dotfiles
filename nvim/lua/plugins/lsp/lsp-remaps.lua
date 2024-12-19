@@ -9,13 +9,14 @@ return {
 					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 				end
 
-				-- Telescope LSP mappings
-				map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-				map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-				map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-				map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-				map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-				map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+				-- fzf-lua LSP mappings
+				local fzf_lua = require("fzf-lua")
+				map("gd", fzf_lua.lsp_definitions, "[G]oto [D]efinition")
+				map("gr", fzf_lua.lsp_references, "[G]oto [R]eferences")
+				map("gI", fzf_lua.lsp_implementations, "[G]oto [I]mplementation")
+				map("<leader>D", fzf_lua.lsp_typedefs, "Type [D]efinition")
+				map("<leader>ds", fzf_lua.lsp_document_symbols, "[D]ocument [S]ymbols")
+				map("<leader>ws", fzf_lua.lsp_workspace_symbols, "[W]orkspace [S]ymbols")
 
 				-- Standard LSP mappings
 				map("K", vim.lsp.buf.hover, "Hover Document")

@@ -1,7 +1,7 @@
 {
     // "position": "left",
     "spacing": 5,
-    // "width": 1280, // Waybar width
+    //"width": 1280, // Waybar width
     // Choose the order of the modules
     "modules-left": [
         //"custom/app_launcher",
@@ -21,7 +21,6 @@
         "network",
         "clock",
         "custom/power"
-        //"custom/lock_screen",
     ],
     //"custom/app_launcher": {
     //    "format": " ",
@@ -36,7 +35,6 @@
             "4": "🗁 ",
             "7": "",
             "8": "",
-            //"active": "",
         },
         "on-scroll-up": "hyprctl dispatch workspace e+1",
         "on-scroll-down": "hyprctl dispatch workspace e-1"
@@ -65,7 +63,6 @@
     "tray": {
         "spacing": 10
     },
-    //
     "group/hardware": {
         "orientation": "horizontal",
         "modules": [
@@ -75,7 +72,6 @@
             "keyboard-state"
         ]
     },
-    // HARDWARE
     "cpu": {
         "format": "{usage}%  ",
         "tooltip": false,

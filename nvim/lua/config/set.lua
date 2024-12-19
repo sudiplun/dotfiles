@@ -3,6 +3,13 @@ local opt = vim.opt
 
 opt.number = true
 opt.relativenumber = true
+
+opt.cursorline = true
+-- Highlight the line number under the cursor
+vim.cmd [[
+  highlight CursorLineNr guifg=#FFD700 ctermfg=yellow
+]]
+
 -- Enable mouse mode, can be useful for resizing splits for example!
 opt.mouse = "a"
 
