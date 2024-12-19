@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/themes/themes/nord.toml"]
+import = ["~/.config/alacritty/themes/rose-pine.toml"]
 [font]
 size = 13.0
 normal = { family = "JetBrains Mono ", style = "Regular" }
