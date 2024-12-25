@@ -1,3 +1,25 @@
+# Customize the prompt with Git branch and status info
+autoload -Uz vcs_info
+precmd() { vcs_info }
+setopt prompt_subst
+
+# Enable status checking
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr '✔'
+zstyle ':vcs_info:git:*' unstagedstr '✚'
+zstyle ':vcs_info:git:*' untrackedstr '💥'
+
+# Git prompt format
+zstyle ':vcs_info:git:*' formats '(%b %u%c)'
+# zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
+
+# Show current directory and Git info
+PROMPT='%~ ${vcs_info_msg_0_}%# '
+
+# Enable useful options
+setopt autocd
+
 # History configurations
 HISTFILE=~/.zsh_history
 HISTSIZE=2000
@@ -10,8 +32,9 @@ setopt autocd # change directory just by typing its name
 
 #zoxide
 eval "$(zoxide init --cmd cd zsh)"
+
 #ohmyposh
-eval "$(oh-my-posh init zsh --config $HOME/dotfiles/ohmyposh/posh.toml)"
+#eval "$(oh-my-posh init zsh --config $HOME/dotfiles/ohmyposh/posh.toml)"
 
 # autocompletion
 if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
@@ -19,8 +42,6 @@ if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; th
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#999999"
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-else 
-    echo "zsh-autosuggestions package not found"
 fi
 #with color
 
@@ -36,6 +57,9 @@ if [ -e $HOME/.zsh_aliases ]; then
 fi
 
 export EDITOR="vim"
+
+
+export PATH="$HOME/.local/bin:$PATH"
 
 #deno
 . "/home/lun/.deno/env"
