@@ -10,13 +10,13 @@ return {
 				end
 
 				-- fzf-lua LSP mappings
-				local fzf_lua = require("fzf-lua")
-				map("gd", fzf_lua.lsp_definitions, "[G]oto [D]efinition")
-				map("gr", fzf_lua.lsp_references, "[G]oto [R]eferences")
-				map("gI", fzf_lua.lsp_implementations, "[G]oto [I]mplementation")
-				map("<leader>D", fzf_lua.lsp_typedefs, "Type [D]efinition")
-				map("<leader>ds", fzf_lua.lsp_document_symbols, "[D]ocument [S]ymbols")
-				map("<leader>ws", fzf_lua.lsp_workspace_symbols, "[W]orkspace [S]ymbols")
+				local fzf = require("fzf-lua")
+				map("gd", fzf.lsp_definitions, "[G]oto [D]efinition")
+				map("gr", fzf.lsp_references, "[G]oto [R]eferences")
+				map("gI", fzf.lsp_implementations, "[G]oto [I]mplementation")
+				map("<leader>D", fzf.lsp_typedefs, "Type [D]efinition")
+				map("<leader>ds", fzf.lsp_document_symbols, "[D]ocument [S]ymbols")
+				map("<leader>ws", fzf.lsp_workspace_symbols, "[W]orkspace [S]ymbols")
 
 				-- Standard LSP mappings
 				map("K", vim.lsp.buf.hover, "Hover Document")
