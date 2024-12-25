@@ -1,7 +1,7 @@
 return { -- Collection of various small independent plugins/modules
 	"echasnovski/mini.nvim",
 	lazy = true, -- Disable loading at startup
-	event = { "InsertEnter" }, -- Load when opening a file or creating a new one
+	event = { "BufReadPost", "InsertEnter" }, -- Load when opening a file or creating a new one
 	config = function()
 		-- Better Around/Inside textobjects
 		--
@@ -21,7 +21,10 @@ return { -- Collection of various small independent plugins/modules
 		-- buffer tabline
 		require("mini.tabline").setup()
 
-		-- file tree
+        -- mini-icons
+		require("mini.icons").setup()
+
+		-- -- file tree
 		require("mini.files").setup()
 		vim.keymap.set("n", "-", function()
 			-- focus on buffer path
@@ -30,7 +33,7 @@ return { -- Collection of various small independent plugins/modules
 			MiniFiles.open(path)
 			MiniFiles.reveal_cwd()
 		end, { desc = "Open Mini Files" })
-
+		--
 		local statusline = require("mini.statusline")
 		-- set use_icons to true if you have a Nerd Font
 		statusline.setup({ use_icons = vim.g.have_nerd_font })
@@ -42,8 +45,5 @@ return { -- Collection of various small independent plugins/modules
 		statusline.section_location = function()
 			return "%2l:%-2v"
 		end
-
-		-- ... and there is more!
-		--  Check out: https://github.com/echasnovski/mini.nvim
 	end,
 }
