@@ -19,6 +19,7 @@ return {
 			end,
 			desc = "prev marked comment",
 		},
+		-- To search Todo on whole project
 		{
 			"<leader>st",
 			":TodoTelescope<CR>",

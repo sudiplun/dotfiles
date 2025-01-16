@@ -8,114 +8,117 @@
  Maintainer: DankChoir
 */
 
-@define-color base            #191724;
-@define-color surface         #1f1d2e;
-@define-color overlay         #26233a;
+@define-color base #191724;
+@define-color surface #1f1d2e;
+@define-color overlay #26233a;
 
-@define-color muted           #6e6a86;
-@define-color subtle          #908caa;
-@define-color text            #e0def4;
+@define-color muted #6e6a86;
+@define-color subtle #908caa;
+@define-color text #e0def4;
 
-@define-color love            #eb6f92;
-@define-color gold            #f6c177;
-@define-color rose            #ebbcba;
-@define-color pine            #31748f;
-@define-color foam            #9ccfd8;
-@define-color iris            #c4a7e7;
+@define-color love #eb6f92;
+@define-color gold #f6c177;
+@define-color rose #ebbcba;
+@define-color pine #31748f;
+@define-color foam #9ccfd8;
+@define-color iris #c4a7e7;
 
-@define-color highlightLow    #21202e;
-@define-color highlightMed    #403d52;
-@define-color highlightHigh   #524f67;
+@define-color highlightLow #21202e;
+@define-color highlightMed #403d52;
+@define-color highlightHigh #524f67;
+
 * {
-  margin: 0;
-  padding: 0 3px;
-  border: none;
-  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 13px;
-  min-height: 14px;
+    margin: 0;
+    padding: 0 3px;
+    border: none;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    min-height: 14px;
 }
 
 /* VISUAL */
 window#waybar {
-  background: transparent;
+    background: transparent;
 }
+
 window {
     color: @text;
 }
+
 #workspace {
-  color: @subtle;
+    color: @subtle;
 }
 
 #workspaces button.active {
-  color: @pine;
+    color: @pine;
 }
 
 #idle_inhibitor.activated {
-  color: @love;
+    color: @love;
 }
 
 #hardware,
 #control {
-  border-radius: 20px;
-  color: @text;
+    border-radius: 20px;
+    color: @text;
 }
 
 #network,
 #power_menu {
-  color: @text;
+    color: @text;
 }
 
 #clock {
-  color: @text;
+    color: @text;
 }
 
 /* Styling elements */
 /*  CPU STYLES */
 #cpu.good {
-  color: @green;
+    color: @green;
 }
 
 #cpu.warning {
-  color: @peach;
+    color: @peach;
 }
 
 #cpu.critical {
-  color: @red;
+    color: @red;
 }
 
 /*  MEMORY style*/
 #memory.warning {
-  color: @peach;
+    color: @peach;
 }
 
 #memory.critical {
-  color: @red;
+    color: @red;
 }
 
 /* BATTERY sytle */
 #battery.full {
-  color: @green;
+    color: @green;
 }
 
 #battery.warning {
-  color: @peach;
+    color: @peach;
 }
 
 #battery.critical {
-  color: @red;
+    color: @red;
 }
 
 /* BACKLIGHT */
 #backlight.critical {
-  color: @red;
+    color: @red;
 }
 
 #backlight.warning {
-  color: @peach;
+    color: @peach;
 }
 
 /* PULSEAUDIO STYLES */
 #pulseaudio.critical {
-  color: @red;
+    color: @red;
 }

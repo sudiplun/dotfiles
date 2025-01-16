@@ -9,3 +9,9 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+
+vim.filetype.add({
+  extension = {
+    njk = "html",
+  },
+})

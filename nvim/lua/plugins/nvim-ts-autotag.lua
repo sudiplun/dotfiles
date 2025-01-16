@@ -3,7 +3,6 @@ return {
 	{
 		"windwp/nvim-ts-autotag",
 		lazy = true,
-		--event = { "BufReadPre", "BufNewFile" }, -- Load only for project files
 		ft = {
 			"astro",
 			"glimmer",
