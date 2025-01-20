@@ -27,4 +27,30 @@ return {
 	-- Vtsls
 	vtsls = {},
 	-- End of TS LSP
+	cssls = {
+		capabilities = capabilities,
+		settings = {
+			css = {
+				lint = {
+					emptyRules = "ignore",
+					duplicateProperties = "warning",
+				},
+			},
+			scss = {
+				lint = {
+					idSelector = "warning",
+					zeroUnits = "warning",
+					duplicateProperties = "warning",
+					emptyRules = nil,
+				},
+				completion = {
+					completePropertyWithSemicolon = true,
+					triggerPropertyValueCompletion = true,
+				},
+			},
+		},
+		on_attach = function(client)
+			client.server_capabilities.document_formatting = false
+		end,
+	},
 }

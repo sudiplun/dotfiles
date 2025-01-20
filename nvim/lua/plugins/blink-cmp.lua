@@ -1,7 +1,11 @@
 return {
 	"saghen/blink.cmp",
 	event = "LspAttach",
-	dependencies = { "rafamadriz/friendly-snippets" },
+	dependencies = {
+		"rafamadriz/friendly-snippets",
+		"mikavilpas/blink-ripgrep.nvim",
+		-- "saghen/blink.compat",
+	},
 	version = "v0.*",
 	opts = {
 		keymap = { preset = "default" },
@@ -11,7 +15,6 @@ return {
 		},
 		completion = {
 			accept = {
-				-- experimental auto-brackets support
 				auto_brackets = {
 					enabled = true,
 				},
@@ -25,8 +28,20 @@ return {
 		-- default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
-			-- compact = {},
-			default = { "lsp", "path", "snippets", "buffer" },
+			default = { "lsp", "lazydev", "path", "snippets", "buffer", "ripgrep" },
+			providers = {
+				lazydev = {
+					name = "LazyDev",
+					module = "lazydev.integrations.blink",
+					score_offset = 100,
+				},
+				ripgrep = {
+					module = "blink-ripgrep",
+					name = "Ripgrep",
+					score_offset = 100,
+					opts = {},
+				},
+			},
 		},
 		signature = { enabled = true },
 	},

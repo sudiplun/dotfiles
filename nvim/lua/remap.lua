@@ -1,4 +1,3 @@
-
 local map = vim.keymap.set
 
 --move line up-down in visual mode
@@ -20,7 +19,7 @@ map("n", "<leader>pv", vim.cmd.Ex, { desc = "Toggle open netrw" })
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymaps
-map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+map("n", "<leader>qq", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 --  See `:help wincmd` for a list of all window commands
 map("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window", remap = true })
@@ -40,7 +39,6 @@ map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
-map("n", "<leader>bo", "<cmd>%bd|e#<cr>", { desc = "Close all buffers but not current one" })
 -- replace by snacks buf
 -- map("n", "<leader>bD", "<cmd>:bd!<cr>", { desc = "Delete Buffer and Window(!save file)" }) -- not others buffer
 -- map("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "delete the buffer" })

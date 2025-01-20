@@ -37,7 +37,8 @@ opt.undofile = true
 opt.ignorecase = true
 opt.smartcase = true
 
--- Keep signcolumn on by default
+--Reserve a space in the gutter
+-- This will avoid an annoying layout shift in the screen
 opt.signcolumn = "yes"
 
 -- Decrease update time
