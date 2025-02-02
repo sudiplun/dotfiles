@@ -11,7 +11,7 @@ All the little things
 ## 🖥️ Software
 
 - OS: Arch Linux
-- Terminal: Alacritty
+- Terminal: [Ghostty](https://ghostty.org/)
 
 | Major Change    | Commit                                                                                            |
 |---------------- | ------------------------------------------------------------------------------------------------- |

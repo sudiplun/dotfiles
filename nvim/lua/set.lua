@@ -6,17 +6,14 @@ opt.relativenumber = true
 
 opt.cursorline = true
 -- Highlight the line number under the cursor
-vim.cmd [[
+vim.cmd([[
   highlight CursorLineNr guifg=#FFD700 ctermfg=yellow
-]]
+]])
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 opt.mouse = "a"
 
 opt.wrap = true
-
--- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = true
 
 --  See `:help 'clipboard'`
 vim.schedule(function()
@@ -54,6 +51,11 @@ opt.splitbelow = false
 
 -- Minimal number of screen lines to keep above and below the cursor.
 opt.scrolloff = 10
+
+--fold
+opt.foldmethod = indent
+opt.foldcolumn = "0"
+opt.foldlevel = 99
 
 --netrw related
 vim.g.netrw_browse_split = 0

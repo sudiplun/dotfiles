@@ -9,15 +9,15 @@ return {
 					vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 				end
 
-				-- fzf-lua LSP mappings
-				local fzf = require("fzf-lua")
-				map("gd", fzf.lsp_definitions, "[G]oto [D]efinition")
-				map("gr", fzf.lsp_references, "[G]oto [R]eferences")
-				map("gI", fzf.lsp_implementations, "[G]oto [I]mplementation")
-				map("<leader>D", fzf.lsp_typedefs, "Type [D]efinition")
-				map("<leader>ds", fzf.lsp_document_symbols, "[D]ocument [S]ymbols")
-				map("<leader>ws", fzf.lsp_workspace_symbols, "[W]orkspace [S]ymbols")
-
+				-- -- fzf-lua LSP mappings
+				-- local fzf = require("fzf-lua")
+				-- map("gd", fzf.lsp_definitions, "[G]oto [D]efinition")
+				-- map("gr", fzf.lsp_references, "[G]oto [R]eferences")
+				-- map("gI", fzf.lsp_implementations, "[G]oto [I]mplementation")
+				-- map("<leader>D", fzf.lsp_typedefs, "Type [D]efinition")
+				-- map("<leader>ds", fzf.lsp_document_symbols, "[D]ocument [S]ymbols")
+				-- map("<leader>ws", fzf.lsp_workspace_symbols, "[W]orkspace [S]ymbols")
+				--
 				-- Standard LSP mappings
 				map("K", vim.lsp.buf.hover, "Hover Document")
 				map("<leader>cr", vim.lsp.buf.rename, "[R]e[n]ame")
