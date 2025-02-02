@@ -186,7 +186,8 @@
         "format-alt": "{bandwidthDownBytes}⬇/{bandwidthUpBytes}⬆",
         "tooltip-format-wifi": "{essid} - ({signalStrength}%)",
         "tooltip-format": "{ifname} via {gwaddr}  ",
-        "on-click-right": "nm-applet"
+        "on-click-right": "nm-applet",
+        "interval": 1
     },
     "clock": {
         "format": "{:%H:%M}",
@@ -220,10 +221,11 @@
         "menu": "on-click",
         "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
         "menu-actions": {
-            "shutdown": "shutdown now",
+            "poweroff": "poweroff",
             "reboot": "reboot",
             "suspend": "systemctl suspend",
-            "hibernate": "systemctl hibernate"
+            "hibernate": "systemctl hibernate",
+            "logout": "hyprctl dispatch exit"
         }
     }
 }
