@@ -30,10 +30,14 @@ return {
 		sources = {
 			default = { "lsp", "lazydev", "path", "snippets", "buffer", "ripgrep" },
 			providers = {
+				lsp = {
+					name = "LSP",
+					score_offset = 400, -- Increase this value to prioritize LSP
+				},
 				lazydev = {
 					name = "LazyDev",
 					module = "lazydev.integrations.blink",
-					score_offset = 100,
+					score_offset = 100,-- higher the number higher the prioritize 
 				},
 				ripgrep = {
 					module = "blink-ripgrep",
