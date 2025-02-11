@@ -19,12 +19,12 @@ return {
 			end,
 			desc = "prev marked comment",
 		},
-		-- To search Todo on whole project
 		{
 			"<leader>st",
-			":TodoTelescope<CR>",
-			desc = "search todo comments",
+			function()
+				Snacks.picker.todo_comments()
+			end,
+			desc = "Todo",
 		},
 	},
-	opts = {},
 }

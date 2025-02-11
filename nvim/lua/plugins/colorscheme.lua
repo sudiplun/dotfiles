@@ -9,6 +9,6 @@ return {
 	},
 	{
 		"folke/tokyonight.nvim",
-        lazy= "true"
+		lazy = "true",
 	},
 }
