@@ -6,9 +6,8 @@ opt.relativenumber = true
 
 opt.cursorline = true
 -- Highlight the line number under the cursor
-vim.cmd([[
-  highlight CursorLineNr guifg=#FFD700 ctermfg=yellow
-]])
+vim.cmd([[highlight CursorLineNr guifg=#FFD700 ctermfg=yellow]])
+vim.cmd([[highlight EndOfBuffer guifg=bg]]) -- blank Character after end of lines
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 opt.mouse = "a"
@@ -20,11 +19,6 @@ vim.schedule(function()
 	opt.clipboard = "unnamedplus"
 end)
 
-opt.tabstop = 2
-opt.softtabstop = 2
-opt.shiftwidth = 4
-opt.expandtab = true
-
 opt.termguicolors = true
 
 -- Save undo history
@@ -33,10 +27,6 @@ opt.undofile = true
 -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 opt.ignorecase = true
 opt.smartcase = true
-
---Reserve a space in the gutter
--- This will avoid an annoying layout shift in the screen
-opt.signcolumn = "yes"
 
 -- Decrease update time
 opt.updatetime = 250

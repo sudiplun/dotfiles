@@ -1,4 +1,3 @@
-if true then return {} end -- WARN: remove this line to active plugin
 return {
 	"folke/which-key.nvim",
 	lazy = true,

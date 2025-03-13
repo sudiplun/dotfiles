@@ -1,4 +1,3 @@
--- Highlight todo, notes, etc in comments
 return {
 	"folke/todo-comments.nvim",
 	lazy = true,
@@ -27,4 +26,5 @@ return {
 			desc = "Todo",
 		},
 	},
+	opts = {},
 }

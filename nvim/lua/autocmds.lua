@@ -11,7 +11,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.filetype.add({
-  extension = {
-    njk = "html",
-  },
+	pattern = {
+		[".*%.blade%.php"] = "html", --blade file
+	},
+	extension = {
+		njk = "html",
+	},
 })
