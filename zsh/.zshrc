@@ -1,3 +1,8 @@
+# execute the hyprland with uwsm
+if [[ -z $WAYLAND_DISPLAY ]] && [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]] && [[ -z $TMUX ]] && uwsm check may-start; then
+    exec uwsm start hyprland.desktop
+fi
+
 # Customize the prompt with Git branch and status info
 autoload -Uz vcs_info
 precmd() { vcs_info }
@@ -15,7 +20,7 @@ zstyle ':vcs_info:git:*' formats '(%b %u%c)'
 # zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 
 # Show current directory and Git info
-PROMPT='%~ ${vcs_info_msg_0_}%# '
+PROMPT='%~ ${vcs_info_msg_0_}> '
 
 # Enable useful options
 setopt autocd
@@ -25,16 +30,13 @@ HISTFILE=~/.zsh_history
 HISTSIZE=2000
 SAVEHIST=4000
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
-setopt hist_ignore_dups       # ignore duplicated commands history list
+#setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
 setopt hist_verify            # show command with history expansion to user before running it
 setopt autocd # change directory just by typing its name
 
 #zoxide
 eval "$(zoxide init --cmd cd zsh)"
-
-#ohmyposh
-#eval "$(oh-my-posh init zsh --config $HOME/dotfiles/ohmyposh/posh.toml)"
 
 # autocompletion
 if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
@@ -63,3 +65,11 @@ export PATH="$HOME/.local/bin:$PATH"
 
 #deno
 . "/home/lun/.deno/env"
+
+# bun completions
+[ -s "/home/lun/.bun/_bun" ] && source "/home/lun/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
