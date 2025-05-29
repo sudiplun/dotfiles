@@ -28,6 +28,10 @@ opt.undofile = true
 opt.ignorecase = true
 opt.smartcase = true
 
+--Reserve a space in the gutter
+-- This will avoid an annoying layout shift in the screen
+opt.signcolumn = "yes"
+
 -- Decrease update time
 opt.updatetime = 250
 
