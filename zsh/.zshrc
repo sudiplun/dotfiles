@@ -24,6 +24,7 @@ PROMPT='%~ ${vcs_info_msg_0_}> '
 
 # Enable useful options
 setopt autocd
+bindkey -e
 
 # History configurations
 HISTFILE=~/.zsh_history
@@ -59,17 +60,4 @@ if [ -e $HOME/.zsh_aliases ]; then
 fi
 
 export EDITOR="vim"
-
-
 export PATH="$HOME/.local/bin:$PATH"
-
-#deno
-. "/home/lun/.deno/env"
-
-# bun completions
-[ -s "/home/lun/.bun/_bun" ] && source "/home/lun/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
