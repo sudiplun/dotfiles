@@ -1,0 +1,4 @@
+[opener]
+pdf = [
+  { run = 'zen-browser "$@"', desc = "Open PDF with zen-browser" }
+]
