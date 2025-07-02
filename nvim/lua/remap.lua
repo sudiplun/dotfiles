@@ -39,9 +39,6 @@ map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
--- replace by snacks buf
--- map("n", "<leader>bD", "<cmd>:bd!<cr>", { desc = "Delete Buffer and Window(!save file)" }) -- not others buffer
--- map("n", "<leader>bd", "<cmd>bdelete<cr>", { desc = "delete the buffer" })
 
 -- save file
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })

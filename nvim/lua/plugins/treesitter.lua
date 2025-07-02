@@ -9,17 +9,14 @@ return { -- Highlight, edit, and navigate code
 	opts = {
 		ensure_installed = {
 			"bash",
-			"css",
-			"html",
 			"javascript",
 			"json",
 			"jsonc",
-			"tsx",
 			"lua",
 			"luadoc",
 			"markdown",
-			"typescript",
 			"toml",
+			"yaml",
 			"vim",
 		},
 		sync_install = false,

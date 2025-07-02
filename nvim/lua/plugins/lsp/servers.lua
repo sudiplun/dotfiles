@@ -28,7 +28,6 @@ return {
 	vtsls = {},
 	-- End of TS LSP
 	cssls = {
-		capabilities = capabilities,
 		settings = {
 			css = {
 				lint = {
@@ -52,5 +51,15 @@ return {
 		on_attach = function(client)
 			client.server_capabilities.document_formatting = false
 		end,
+	},
+	yamlls = {
+		settings = {
+			yaml = {
+				keyOrdering = false,
+				format = { enable = true },
+				validate = true,
+				schemaStore = { enable = true },
+			},
+		},
 	},
 }
