@@ -1,7 +1,4 @@
 {
-	// "position": "left",
-	"spacing": 5,
-	//"width": 1280, // Waybar width
 	// Choose the order of the modules
 	"modules-left": [
 		//"custom/app_launcher",
@@ -20,19 +17,11 @@
 		"clock",
 		"custom/power"
 	],
-	//"custom/app_launcher": {
-	//    "format": " ",
-	//    "on-click": "sh -c nwg-drawer",
-	//    "tooltip": false
-	//},
 	"hyprland/workspaces": {
 		"format": "{icon}",
 		"format-icons": {
-			"1": "",
-			"2": "",
-			// "3": "",
-			// "4": "🗁 ",
-			"7": ""
+			"1": "",
+			"2": ""
 		},
 		"on-scroll-up": "hyprctl dispatch workspace e+1",
 		"on-scroll-down": "hyprctl dispatch workspace e-1"
@@ -66,7 +55,7 @@
 		"modules": [
 			"cpu",
 			"memory",
-			"battery",
+			"battery"
 		]
 	},
 	"cpu": {
@@ -81,7 +70,7 @@
 		"interval": 3
 	},
 	"memory": {
-		"format": "{}% ☰",
+		"format": "{}% ☰ ",
 		"states": {
 			// MIN-VALUES
 			"warning": 75,
@@ -98,25 +87,46 @@
 			"critical": 20
 		},
 		"format": "{capacity}% {icon}",
-		"format-charging": "{capacity}%  ",
-		"format-plugged": "{capacity}%  ",
-		"format-alt": "{time} {icon}",
-		// "format-good": "", // An empty format will hide the module
-		// "format-full": "",
-		"format-icons": [
-			" ",
-			" ",
-			" ",
-			" ",
-			" "
-		]
+		"format-discharging": "{capacity}%{icon}",
+		"format-charging": "{capacity}%{icon}",
+		"format-plugged": " ",
+		"format-icons": {
+			"charging": [
+				"󰢜 ",
+				"󰂆 ",
+				"󰂇 ",
+				"󰂈 ",
+				"󰢝 ",
+				"󰂉 ",
+				"󰢞 ",
+				"󰂊 ",
+				"󰂋 ",
+				"󰂅 "
+			],
+			"default": [
+				"󰁺",
+				"󰁻",
+				"󰁼",
+				"󰁽",
+				"󰁾",
+				"󰁿",
+				"󰂀",
+				"󰂁",
+				"󰂂",
+				"󰁹"
+			]
+		},
+		"format-full": "Charged ",
+		"tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
+		"tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
+		"interval": 10
 	},
 	"group/control": {
 		"orientation": "horizontal",
 		"modules": [
 			"pulseaudio",
-			"backlight",
-			"pulseaudio#microphone"
+			"pulseaudio#microphone",
+			"backlight"
 		]
 	},
 	"backlight": {
@@ -128,15 +138,15 @@
 		},
 		"format": "{percent}% {icon}",
 		"format-icons": [
-			"  ",
-			"  ",
-			"  ",
-			" ",
-			" ",
-			" ",
-			" ",
-			" ",
-			" "
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
 		]
 	},
 	"pulseaudio": {
@@ -179,16 +189,23 @@
 		"tooltip-format": " at {volume}%"
 	},
 	"network": {
-		"format-wifi": "󰤥 ",
-		"format-ethernet": "{ipaddr}/{cidr}  ",
-		"format-linked": "{ifname} (No IP)  ",
-		"format-disconnected": "Disconnected ⚠",
-		// "format-alt": "{ifname}: {ipaddr}/{cidr}",
-		"format-alt": "{bandwidthDownBytes}⬇/{bandwidthUpBytes}⬆",
-		"tooltip-format-wifi": "{essid} - ({signalStrength}%)",
-		"tooltip-format": "{ifname} via {gwaddr}  ",
-		"on-click-right": "nm-applet",
-		"interval": 1
+		"format-icons": [
+			"󰤯 ",
+			"󰤟 ",
+			"󰤢 ",
+			"󰤥 ",
+			"󰤨 "
+		],
+		"format": "{icon}",
+		"format-wifi": "{icon}",
+		"format-ethernet": "󰀂 ",
+		"format-disconnected": "󰖪 ",
+		"tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+		"tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+		"tooltip-format-disconnected": "Disconnected",
+		"interval": 3,
+		"on-click-right": "nm-applet"
+		// "nospacing": 1
 	},
 	"clock": {
 		"format": "{:%H:%M}",
@@ -216,17 +233,8 @@
 		}
 	},
 	"custom/power": {
-		"format": "⏻",
-		// "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
-		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-		"menu-actions": {
-			"poweroff": "poweroff",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate",
-			"logout": "hyprctl dispatch exit"
-		}
+		"format": "󰐥",
+		"on-click": "~/.config/hypr/scripts/power_menu.sh",
+		"tooltip": false
 	}
 }

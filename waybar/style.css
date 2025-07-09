@@ -20,12 +20,23 @@
 @define-color highlightHigh #524f67;
 
 * {
-  margin: 0;
-  padding: 0 3px;
-  border: none;
-  font-family: sans-serif;
   font-size: 13px;
   min-height: 14px;
+}
+
+#cpu,
+#memory,
+#battery,
+#pulseaudio,
+#backlight,
+#network,
+#clock {
+  margin: 0 2px;
+  padding: 0 3px;
+}
+
+#clock {
+  font-size: 16px;
 }
 
 /* VISUAL */
@@ -36,33 +47,12 @@ window#waybar {
 window,
 #workspaces,
 #network,
-#power_menu {
+#power {
   color: @text;
 }
 
 #workspaces button.active {
   color: @pine;
-  background: @highlightLow;
-}
-
-#idle_inhibitor.activated {
-  color: @love;
-}
-
-#hardware,
-#control {
-  border-radius: 20px;
-  color: @text;
-}
-
-#clock {
-  color: @text;
-}
-
-/* Styling elements */
-/*  CPU STYLES */
-#cpu.good {
-  color: @foam;
 }
 
 #cpu.warning {
@@ -82,7 +72,7 @@ window,
   color: @love;
 }
 
-/* BATTERY sytle */
+/* BATTERY sytle / color */
 #battery.full {
   color: @foam;
 }
@@ -104,7 +94,7 @@ window,
   color: @gold;
 }
 
-/* PULSEAUDIO STYLES */
+/* PULSEAUDIO STYLES / color*/
 #pulseaudio.critical {
   color: @love;
 }
