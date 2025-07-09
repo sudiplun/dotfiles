@@ -1,4 +1,3 @@
-# dev_config
 
 <!--toc:start-->
 
