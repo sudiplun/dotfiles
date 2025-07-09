@@ -1,0 +1,30 @@
+alias ls='ls --color=auto'
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+# alias TOOLS
+alias fzfi='fzf --preview="cat {}"'
+
+# Directories
+alias .='cd ..'
+alias ..='cd ../..'
+alias ...='cd ../../..'
+
+# Arch packages
+alias pi="sudo pacman -S"
+alias pu="sudo pacman -Syu"
+alias pr="sudo pacman -Rns"
+
+# Tools 
+alias d="docker"
+alias yt="yt-x"
+#extra
+alias lg="lazygit"
+alias t="tmux"
+
+alias topdf="soffice --headless --convert-to pdf"
+alias qr-wifi="nmcli device wifi show-password" 
+alias bluetooth="sudo systemctl start bluetooth && blueman-manager"
+
+#systemd
+alias systemctl-run='systemctl list-units  --type=service  --state=running'

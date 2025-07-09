@@ -1,0 +1,5 @@
+--target=~/.config
+--ignore=.stowrc
+--ignore=INSTALL.sh
+--ignore=README.md
+--ignore='\.git.*'
