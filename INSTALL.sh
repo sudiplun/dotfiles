@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# FIX: this script doesn't working so, do not run it.
+
 # Exit immediately if a command fails
 set -euo pipefail
 
@@ -13,10 +15,10 @@ fi
 
 # System packages to install
 system_packages=(
-	wofi nautilus zen chromium ghostty alacritty obsidian keepassxc
+	wofi nautilus chromium ghostty alacritty obsidian keepassxc
 	hyprctl waybar loginctl cliphist hyprpicker grim slurp wl-copy
 	wpctl pamixer brightnessctl playerctl hypridle polkit-gnome
-	wl-paste wlsunset
+	wl-paste hyprsunset
 )
 
 # Display packages to be installed

@@ -51,6 +51,12 @@ window,
   color: @text;
 }
 
+#workspaces button {
+  border: 0;
+  padding: 0 2px;
+  margin: 0 2px;
+}
+
 #workspaces button.active {
   color: @pine;
 }
