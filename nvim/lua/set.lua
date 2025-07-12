@@ -15,9 +15,9 @@ opt.mouse = "a"
 opt.wrap = true
 
 --  See `:help 'clipboard'`
-vim.schedule(function()
-	opt.clipboard = "unnamedplus"
-end)
+-- vim.schedule(function()
+-- 	opt.clipboard = "unnamedplus"
+-- end)
 
 opt.termguicolors = true
 
@@ -47,7 +47,6 @@ opt.splitbelow = false
 opt.scrolloff = 10
 
 --fold
-opt.foldmethod = indent
 opt.foldcolumn = "0"
 opt.foldlevel = 99
 

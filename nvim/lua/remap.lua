@@ -5,11 +5,11 @@ map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
 
 --Exit insert mode without hitting escape
-map("i", "jk", "<Esc>", { desc = "Esc" })
+-- map("i", "jk", "<Esc>", { desc = "Esc" })
 
--- map({ "n", "x" }, "<leader>y", [["+y]]) -- yank to clipboard register ("+)
--- map({ "n", "x" }, "<leader>d", [["+d]]) -- delete to clipboard register ("+)
--- map({ "n", "x" }, "<leader>p", [["+p]]) -- put from clipboard register ("+=)
+map({ "n", "x" }, "<leader>y", [["+y]], { desc = "yank to clipboard register " })
+map({ "n", "x" }, "<leader>d", [["+d]], { desc = "delete to clipboard register" })
+map({ "n", "x" }, "<leader>p", [["+p]], { desc = "put from clipboard register" })
 
 -- file mananger
 map("n", "<leader>pv", vim.cmd.Ex, { desc = "Toggle open netrw" })
@@ -42,8 +42,6 @@ map("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
 
 -- save file
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
--- quit
---map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 
 -- windows
 map("n", "<leader>w", "<c-w>", { desc = "Windows", remap = true })
