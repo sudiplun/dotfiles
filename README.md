@@ -7,17 +7,10 @@ All the little things
 - OS: Arch Linux
 - Terminal: [Ghostty](https://ghostty.org/)
 
-### Stow
-
-target are specific on .stowrc in root directory
-
-_run this_
-symbolic link to default app config directory.
-
+### installation
 ```bash
-stow . --dotfiles
+curl -s https://raw.githubusercontent.com/sudiplun/dotfiles/refs/heads/main/boot.sh | bash
 ```
-
 ---
 
 ### Major Changes
