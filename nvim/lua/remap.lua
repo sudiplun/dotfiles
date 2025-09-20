@@ -12,7 +12,7 @@ map({ "n", "x" }, "<leader>d", [["+d]], { desc = "delete to clipboard register" 
 map({ "n", "x" }, "<leader>p", [["+p]], { desc = "put from clipboard register" })
 
 -- file mananger
-map("n", "<leader>pv", vim.cmd.Ex, { desc = "Toggle open netrw" })
+map("n", "<leader>pv", ":Ex<CR>", { desc = "Toggle open netrw" })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`

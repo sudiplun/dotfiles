@@ -1,3 +1,4 @@
+-- if true then return {} end
 return { -- Collection of various small independent plugins/modules
 	"echasnovski/mini.nvim",
 	lazy = true,
@@ -19,7 +20,7 @@ return { -- Collection of various small independent plugins/modules
 		require("mini.surround").setup()
 
 		-- buffer tabline
-		require("mini.tabline").setup()
+--		require("mini.tabline").setup()
 
 		-- mini-icons
 		require("mini.icons").setup()

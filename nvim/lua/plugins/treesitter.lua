@@ -9,7 +9,6 @@ return { -- Highlight, edit, and navigate code
 	opts = {
 		ensure_installed = {
 			"bash",
-			"javascript",
 			"json",
 			"jsonc",
 			"lua",
