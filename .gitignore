@@ -20,3 +20,4 @@ themes/
 # neovim
 nvim/lazy-lock.json
 nvim/.luarc.json
+.debris/

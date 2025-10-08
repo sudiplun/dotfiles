@@ -38,6 +38,8 @@ setopt autocd # change directory just by typing its name
 
 #zoxide
 eval "$(zoxide init --cmd cd zsh)"
+# starship
+eval "$(starship init zsh)"
 
 # autocompletion
 if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
@@ -61,6 +63,7 @@ fi
 
 export EDITOR="vim"
 export PATH="$HOME/.local/bin:$PATH"
+
 # yazi
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
