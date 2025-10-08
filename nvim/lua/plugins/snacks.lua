@@ -6,7 +6,7 @@ return {
 	opts = {
 		bigfile = { enabled = true },
 		dashboard = { enabled = true, preset = {
-			header = [[Only focus on What's in your control]],
+			header = [[God should praised only when you have energy.]],
 		} },
 		explorer = { enabled = true },
 		indent = { enabled = true },
