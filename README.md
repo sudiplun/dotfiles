@@ -11,6 +11,11 @@ All the little things
 ```bash
 curl -s https://raw.githubusercontent.com/sudiplun/dotfiles/refs/heads/main/boot.sh | bash
 ```
+
+*Server Setup*
+```bash
+curl -s https://raw.githubusercontent.com/sudiplun/dotfiles/refs/heads/main/server_setup.sh | bash
+```
 ---
 
 ### Major Changes
