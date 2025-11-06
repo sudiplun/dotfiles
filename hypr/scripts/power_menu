@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Function to show power menu
+show_power_menu() {
+  local menu_options=" Lock
+󰤄 Sleep
+ Relaunch
+󰜉 Restart
+󰐥 Shutdown"
+
+  # Use walker (with dmenu-like mode)
+  local selection=$(echo -e "$menu_options" | walker --dmenu)
+
+  case "$selection" in
+  *Lock*) hyprlock ;;
+  *Sleep*) systemctl suspend ;;
+  *Relaunch*) uwsm stop ;;
+  *Restart*) systemctl reboot ;;
+  *Shutdown*) systemctl poweroff ;;
+  esac
+}
+
+# Main execution
+show_power_menu
