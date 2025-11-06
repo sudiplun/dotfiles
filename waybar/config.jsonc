@@ -14,8 +14,7 @@
 		"group/hardware",
 		"group/control",
 		"network",
-		"clock",
-		"custom/power"
+		"clock"
 	],
 	"hyprland/workspaces": {
 		"format": "{icon}",
@@ -153,11 +152,11 @@
 		// "scroll-step": 1, // %, can be a float
 		"format": "{volume}% {icon}",
 		"format-bluetooth": "{volume}% {icon} {format_source}",
-		"format-bluetooth-muted": " {icon} {format_source}",
-		"format-muted": " ",
+		"format-bluetooth-muted": "󰂲 {icon} {format_source}",
+		"format-muted": "  ",
 		"format-icons": {
-			"headphone": "",
-			"hands-free": "",
+			"headphone": " ",
+			"hands-free": " ",
 			"headset": " ",
 			"phone": "",
 			"portable": "",
@@ -204,7 +203,7 @@
 		"tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
 		"tooltip-format-disconnected": "Disconnected",
 		"interval": 3,
-		"on-click-right": "nm-applet"
+		"on-click-right": "ghostty -e impala"
 		// "nospacing": 1
 	},
 	"clock": {
@@ -232,9 +231,5 @@
 			"on-scroll-down": "shift_down"
 		}
 	},
-	"custom/power": {
-		"format": "󰐥",
-		"on-click": "~/.config/hypr/scripts/power_menu.sh",
-		"tooltip": false
-	}
+
 }

@@ -104,3 +104,7 @@ window,
 #pulseaudio.critical {
   color: @love;
 }
+
+#idle_inhibitor.activated {
+  color: @love;
+}
