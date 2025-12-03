@@ -1,18 +1,8 @@
-/*
- Variant: Rosé Pine
- Maintainer: DankChoir
-*/
-
-@define-color base #191724;
-@define-color surface #1f1d2e;
-@define-color overlay #26233a;
-@define-color muted #6e6a86;
-@define-color subtle #908caa;
-@define-color text #e0def4;
-@define-color love #eb6f92;
-@define-color gold #f6c177;
-@define-color rose #ebbcba;
-@define-color pine #31748f;
+@define-color white #FFFFFF;
+@define-color red #F72F35;
+@define-color orange #FFA500;
+@define-color green #00FF00;
+@define-color muted #BBBCB6;
 @define-color foam #9ccfd8;
 @define-color iris #c4a7e7;
 @define-color highlightLow #21202e;
@@ -45,66 +35,70 @@ window#waybar {
 }
 
 window,
-#workspaces,
 #network,
 #power {
-  color: @text;
+  color: @white;
 }
 
 #workspaces button {
   border: 0;
   padding: 0 2px;
   margin: 0 2px;
+  color: @white;
 }
 
 #workspaces button.active {
-  color: @pine;
+  color: @green;
 }
 
 #cpu.warning {
-  color: @gold;
+  color: @orange;
 }
 
 #cpu.critical {
-  color: @love;
+  color: @red;
 }
 
 /*  MEMORY style*/
 #memory.warning {
-  color: @gold;
+  color: @orange;
 }
 
 #memory.critical {
-  color: @love;
+  color: @red;
 }
 
 /* BATTERY sytle / color */
 #battery.full {
-  color: @foam;
+  color: @green;
 }
 
 #battery.warning {
-  color: @gold;
+  color: @orange;
 }
 
 #battery.critical {
-  color: @love;
+  color: @red;
 }
 
 /* BACKLIGHT */
 #backlight.critical {
-  color: @love;
+  color: @red;
 }
 
 #backlight.warning {
-  color: @gold;
+  color: @orange;
 }
 
 /* PULSEAUDIO STYLES / color*/
 #pulseaudio.critical {
-  color: @love;
+  color: @red;
+}
+
+#pulseaudio.muted {
+  color: @highlightMed;
 }
 
 #idle_inhibitor.activated {
-  color: @love;
+  color: @red;
 }

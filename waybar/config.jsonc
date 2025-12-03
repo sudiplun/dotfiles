@@ -16,6 +16,9 @@
 		"network",
 		"clock"
 	],
+	//================================================================================
+	// LEFT MODULES
+	//================================================================================
 	"hyprland/workspaces": {
 		"format": "{icon}",
 		"format-icons": {
@@ -34,6 +37,9 @@
 		"on-click": "cmus-remote -u", //toggle pause
 		"escape": true //handle markup entities
 	},
+	//================================================================================
+	// CENTER MODULES
+	//================================================================================
 	"idle_inhibitor": {
 		"format": "{icon}",
 		"format-icons": {
@@ -45,7 +51,9 @@
 		"format": "{title}",
 		"max-length": 100
 	},
+	//================================================================================
 	// RIGHT MODULES
+	//================================================================================
 	"tray": {
 		"spacing": 10
 	},
@@ -128,26 +136,6 @@
 			"backlight"
 		]
 	},
-	"backlight": {
-		"device": "intel_backlight",
-		"states": {
-			// MIN-VALUES
-			"critical": 90,
-			"warning": 69
-		},
-		"format": "{percent}% {icon}",
-		"format-icons": [
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			"",
-			""
-		]
-	},
 	"pulseaudio": {
 		// "scroll-step": 1, // %, can be a float
 		"format": "{volume}% {icon}",
@@ -187,6 +175,26 @@
 		"tooltip": false,
 		"tooltip-format": " at {volume}%"
 	},
+	"backlight": {
+		"device": "intel_backlight",
+		"states": {
+			// MIN-VALUES
+			"critical": 90,
+			"warning": 69
+		},
+		"format": "{percent}% {icon}",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		]
+	},
 	"network": {
 		"format-icons": [
 			"󰤯 ",
@@ -208,7 +216,7 @@
 	},
 	"clock": {
 		"format": "{:%H:%M}",
-		"format-alt": "{:%A, %B %d, %Y (%R)} ",
+		"format-alt": "{:%a, %b %d, %Y (%R)} ",
 		"tooltip-format": "<tt><small>{calendar}</small></tt>",
 		"calendar": {
 			"mode": "year",
@@ -230,6 +238,6 @@
 			"on-scroll-up": "shift_up",
 			"on-scroll-down": "shift_down"
 		}
-	},
-
+	}
 }
+
