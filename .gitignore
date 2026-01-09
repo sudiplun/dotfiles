@@ -16,8 +16,14 @@ luac.out
 
 # alacritty theme
 themes/
+# yazi flavors
+flavors/
 
 # neovim
 nvim/lazy-lock.json
 nvim/.luarc.json
+#mega-cmd
 .debris/
+
+# yazi
+plugins/

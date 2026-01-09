@@ -1,12 +1,40 @@
-set laststatus=2
-set t_co=256
-set showcmd
-:set number
-:set relativenumber
+set nu 
+set relativenumber
 :imap jk <esc>
+
+" VISUAL APPEARANCE 
+set background=dark
+"nolorscheme slate
+"set termguicolors
+syntax enable
+
+" SEARCH BEHAVIOR 
 set ignorecase
-set showmode
-set showmatch
-set cursorline
-set wrap
-syntax on
+set smartcase
+set incsearch
+set hlsearch
+
+" TEXT EDITING 
+set linebreak
+set autoindent
+set smartindent
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set shiftround
+
+"settting leader key space 
+let mapleader = " "
+
+" Toggle relative numbers
+function! ToggleRelativeNumber()
+  if &relativenumber
+    set norelativenumber
+    echo "Relative numbers OFF"
+  else
+    set relativenumber
+    echo "Relative numbers ON"
+  endif
+endfunction
+nnoremap <leader>rn :call ToggleRelativeNumber()<CR>

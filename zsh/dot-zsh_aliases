@@ -1,3 +1,5 @@
+alias vpn="sudo openconnect --protocol=fortinet noc.datahub.com.np:1443 --user=sudip.shrestha"
+
 alias ls='ls --color=auto'
 alias ll='ls -l'
 alias la='ls -A'
@@ -24,7 +26,4 @@ alias t="tmux"
 
 alias topdf="soffice --headless --convert-to pdf"
 alias qr-wifi="nmcli device wifi show-password" 
-alias bluetooth="sudo systemctl start bluetooth && blueman-manager"
-
-#systemd
-alias systemctl-run='systemctl list-units  --type=service  --state=running'
+alias bluetooth="sudo systemctl start bluetooth && bluetui"

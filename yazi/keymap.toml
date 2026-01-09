@@ -4,7 +4,12 @@ on = ["g", "p"]
 run = "cd ~/Pictures"
 desc = "Cd to ~/Pictures"
 
-# plugin manage
+[[mgr.prepend_keymap]]
+on = ["g", "D"]
+run = "cd ~/Documents/"
+desc = "goto Documents"
+
+# plugin manager
 [[mgr.prepend_keymap]]
 on = ["c", "a", "a"]
 run = "plugin compress"
