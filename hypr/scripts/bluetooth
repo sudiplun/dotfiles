@@ -1,0 +1,15 @@
+#!/bin/bash
+
+menu_items="󰂯 Toggle Bluetooth
+󰂱 Connect Device
+󰂲 Disconnect Device
+󰂰 Open Elephant Bluetooth"
+
+selection=$(echo -e "$menu_items" | walker --dmenu)
+
+case "$selection" in
+  *Toggle*) rfkill list bluetooth | grep -q "Soft blocked: yes" && rfkill unblock bluetooth || rfkill block bluetooth ;;
+  *Connect*) bluetoothctl connect ;;
+  *Disconnect*) bluetoothctl disconnect ;;
+  *Elephant*) elephant-bluetooth ;;
+esac
