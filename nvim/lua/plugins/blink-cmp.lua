@@ -47,7 +47,7 @@ return {
 				ripgrep = {
 					module = "blink-ripgrep",
 					name = "Ripgrep",
-					score_offset = 100,
+					score_offset = 50,
 					opts = {},
 				},
 			},

@@ -28,8 +28,9 @@ return {
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
 
 				-- Document highlight
-				if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
-					local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
+				if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+					local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight",
+						{ clear = false })
 					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 						buffer = event.buf,
 						group = highlight_augroup,
@@ -44,15 +45,22 @@ return {
 						group = vim.api.nvim_create_augroup("lsp-detach", { clear = true }),
 						callback = function(event2)
 							vim.lsp.buf.clear_references()
-							vim.api.nvim_clear_autocmds({ group = "lsp-highlight", buffer = event2.buf })
+							vim.api.nvim_clear_autocmds({
+								group = "lsp-highlight",
+								buffer =
+								    event2.buf
+							})
 						end,
 					})
 				end
 
 				-- Inlay hints toggle
-				if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+				if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
 					map("<leader>th", function()
-						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({
+							bufnr =
+							    event.buf
+						}))
 					end, "[T]oggle Inlay [H]ints")
 				end
 			end,

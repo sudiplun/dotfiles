@@ -1,7 +1,8 @@
-if true then return{} end --WARN: remove this line to enable 
+if true then return {} end
+--discord server
 return {
-  'vyfor/cord.nvim',
-  build = './build || .\\build',
-  event = 'VeryLazy',
-  opts = {}, -- calls require('cord').setup()
+	'vyfor/cord.nvim',
+	build = './build || .\\build',
+	event = 'VeryLazy',
+	opts = {}, -- calls require('cord').setup()
 }

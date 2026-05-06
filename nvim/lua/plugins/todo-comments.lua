@@ -1,4 +1,3 @@
--- local Snacks = require("snacks")
 return {
 	"folke/todo-comments.nvim",
 	lazy = true,

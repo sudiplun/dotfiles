@@ -19,6 +19,7 @@ opt.wrap = true
 -- 	opt.clipboard = "unnamedplus"
 -- end)
 
+opt.confirm = true --Confirm to save changes before exiting modified buffer
 opt.termguicolors = true
 
 -- Save undo history

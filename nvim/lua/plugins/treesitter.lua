@@ -15,6 +15,7 @@ return { -- Highlight, edit, and navigate code
 			"luadoc",
 			"markdown",
 			"toml",
+			"terraform",
 			"yaml",
 			"vim",
 		},
