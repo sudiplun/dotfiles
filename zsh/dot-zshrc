@@ -1,8 +1,4 @@
-# execute the hyprland with uwsm
-if [[ -z $WAYLAND_DISPLAY ]] && [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]] && [[ -z $TMUX ]] && uwsm check may-start; then
-    exec uwsm start hyprland.desktop
-fi
-
+# https://wiki.hypr.land/Useful-Utilities/Systemd-start/
 # Customize the prompt with Git branch and status info
 autoload -Uz vcs_info
 precmd() { vcs_info }
@@ -37,9 +33,9 @@ setopt hist_verify            # show command with history expansion to user befo
 setopt autocd # change directory just by typing its name
 
 #zoxide
-eval "$(zoxide init --cmd cd zsh)"
+#eval "$(zoxide init --cmd cd zsh)"
 # starship
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
 
 # autocompletion
 if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then

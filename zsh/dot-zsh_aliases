@@ -22,8 +22,10 @@ alias d="docker"
 alias yt="yt-x"
 #extra
 alias lg="lazygit"
-alias t="tmux"
+alias t="uwsm app -- tmux"
 
 alias topdf="soffice --headless --convert-to pdf"
 alias qr-wifi="nmcli device wifi show-password" 
-alias bluetooth="sudo systemctl start bluetooth && bluetui"
+alias bt="sudo systemctl start bluetooth && bluetui"
+alias mycloud="ssh -i ~/.ssh/dh/mycloud"
+alias k="kubectl"
