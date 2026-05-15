@@ -10,8 +10,6 @@ local fileManager = "nautilus"
 local browser     = "zen-browser"
 local menu        = "walker"
 
--- hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("uwsm app -- " .. terminal))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("uwsm app -- " .. browser))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("uwsm app -- " .. fileManager))
@@ -23,6 +21,11 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. "+ SUPER_L", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen()) -- fullscreen
+
+-- Screenshot 
+hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy'))
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | tee ~/Pictures/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy'))
 
 -- carefully
 hl.bind(mainMod .. " + Delete",
