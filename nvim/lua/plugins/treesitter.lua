@@ -3,7 +3,7 @@ return { -- Highlight, edit, and navigate code
 	lazy = true,
 	event = "BufReadPre",
 	build = ":TSUpdate",
-	main = "nvim-treesitter.configs", -- Sets main module to use for opts
+--	main = "nvim-treesitter.configs", -- Sets main module to use for opts
 	-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 	---@diagnostic disable
 	opts = {

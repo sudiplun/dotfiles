@@ -1,14 +1,14 @@
 return {
 	{
-		"rose-pine/neovim",
+		"folke/tokyonight.nvim",
 		priority = 1000, -- Make sure to load this before all the other start plugins.
-		name = "rose-pine",
+		name = "tokyonight",
 		init = function()
-			vim.cmd("colorscheme rose-pine-main")
+			vim.cmd("colorscheme tokyonight")
 		end,
 	},
 	{
-		"folke/tokyonight.nvim",
+		"rose-pine/neovim",
 		lazy = "true",
 	},
 }

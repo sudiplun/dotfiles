@@ -63,6 +63,7 @@ return { -- Autoformat
 			json = { "prettierd", "prettier" },
 			yaml = { "yamlfmt" },
 			go = { "gopls" },
+			python = { "ruff" },
 			tf = { "terraform" },
 			graphql = { "prettierd", "prettier" },
 			md = { "prettierd", "prettier" },
