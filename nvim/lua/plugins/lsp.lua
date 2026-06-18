@@ -1,36 +1,36 @@
 return {
-	{ -- lsp config
-		"neovim/nvim-lspconfig",
+	{
+		"j-hui/fidget.nvim", -- keep for LSP progress UI
+		event = "LspAttach",
+		opts = {},
+	},
+	{
+		-- lazydev for vim API completion in lua files (replaces the old neodev)
+		"folke/lazydev.nvim",
+		ft = "lua",
+		opts = {
+			library = {
+				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
+			},
+		},
+	},
+	{
+		-- This is just a dummy plugin entry to hook LSP setup into lazy's lifecycle
+		"neovim/nvim-lspconfig", -- optional: only for the lsp/ config files it ships
 		lazy = true,
 		event = { "BufReadPre", "BufNewFile" },
-		dependencies = {
-			-- LSP Support
-			{ "williamboman/mason.nvim", config = true },
-			"williamboman/mason-lspconfig.nvim",
-			-- Extensible UI for Neovim notifications and LSP progress messages.
-			{ "j-hui/fidget.nvim" },
-		},
 		config = function()
-			require("plugins.lsp.lsp-remaps").setup()
-			-- lsp config
-			local servers = require("plugins.lsp.servers")
-			-- autocompletion Support
+			require("config.lsp-remaps").setup()
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
-			-- mason setup
-			require("mason").setup()
-			-- Configure mason-lspconfig
-			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"lua_ls",
-					"yamlls",
-				},
-				handlers = {
-					function(server_name)
-						local opts = servers[server_name] or {}
-						opts.capabilities = capabilities
-						require("lspconfig")[server_name].setup(opts)
-					end,
-				},
+			vim.lsp.config("*", { capabilities = capabilities })
+
+			-- Enable all servers — matches filenames in your lsp/ folder
+			vim.lsp.enable({
+				"lua_ls",
+				"yamlls",
+				"gopls",
+				"basedpyright",
+				"bashls",
 			})
 		end,
 	},
