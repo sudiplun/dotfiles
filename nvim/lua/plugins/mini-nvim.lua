@@ -1,36 +1,32 @@
--- if true then return {} end
-return { -- Collection of various small independent plugins/modules
-	"echasnovski/mini.nvim",
-	lazy = true,
-	event = { "BufReadPost", "InsertEnter" }, -- Load when opening a file or creating a new one
-	config = function()
-		-- Better Around/Inside textobjects
-		--
-		-- Examples:
-		--  - va)  - [V]isually select [A]round [)]paren
-		--  - yinq - [Y]ank [I]nside [N]ext [Q]uote
-		--  - ci'  - [C]hange [I]nside [']quote
-		require("mini.ai").setup({ i_lines = 500 })
+return {
+	-- 1. Mini.ai (Text Objects)
+	{
+		"echasnovski/mini.nvim",
+		event = "BufReadPost",
+		config = function()
+			-- Examples:
+			--  - va)  - [V]isually select [A]round [)]paren
+			--  - yinq - [Y]ank [I]nside [N]ext [Q]uote
+			--  - ci'  - [C]hange [I]nside [']quote
+			require("mini.ai").setup({ i_lines = 500 })
+		end,
+	},
+	-- 3. Mini.icons & Mini.statusline (UI Layer)
+	{
+		"echasnovski/mini.nvim",
+		event = "VeryLazy", -- Loads immediately after startup processing completes
+		config = function()
+			-- Global icon provider
+			require("mini.icons").setup()
 
-		-- Add/delete/replace surroundings (brackets, quotes, etc.)
-		--
-		-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-		-- - sd'   - [S]urround [D]elete [']quotes
-		-- - sr)'  - [S]urround [R]eplace [)] [']
-		require("mini.surround").setup()
+			-- Statusline setup
+			local statusline = require("mini.statusline")
+			statusline.setup()
 
-		-- buffer tabline
---		require("mini.tabline").setup()
-
-		-- mini-icons
-		require("mini.icons").setup()
-
-		-- statusline
-		local statusline = require("mini.statusline")
-		statusline.setup()
-		---@diagnostic disable-next-line: duplicate-set-field
-		statusline.section_location = function()
-			return "%2l:%-2v"
-		end
-	end,
+			---@diagnostic disable-next-line: duplicate-set-field
+			statusline.section_location = function()
+				return "%2l:%-2v"
+			end
+		end,
+	},
 }

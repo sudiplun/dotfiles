@@ -1,8 +1,8 @@
 return {
 	"MagicDuck/grug-far.nvim",
-	opts = { headerMaxWidth = 80 },
 	cmd = "GrugFar",
 	keys = {
+		-- 1. Original Grug-Far Window with auto-extension filtering
 		{
 			"<leader>sr",
 			function()
@@ -16,12 +16,14 @@ return {
 				})
 			end,
 			mode = { "n", "x" },
-			desc = "Search and Replace",
+			desc = "Grug-Far: Search and Replace",
 		},
 	},
-	config = function()
-		require("grug-far").setup({
-			-- Your plugin-specific configurations
-		})
-	end,
+	opts = {
+		headerMaxWidth = 80,
+		-- Define your standalone configurations directly within the opts block
+		icons = {
+			enabled = true, -- Leverage Nerd Fonts icon elements cleanly
+		},
+	},
 }
