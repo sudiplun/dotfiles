@@ -17,6 +17,7 @@ fontconfig
 fzf
 ghostty
 grim
+gpu-screen-recorder
 hypridle
 hyprland
 hyprland-qtutils
@@ -24,6 +25,7 @@ hyprlock
 hyprpolkitagent
 hyprpicker
 hyprshot
+hyprpwcenter
 hyprsunset
 imagemagick
 impala
@@ -55,6 +57,8 @@ ufw
 unzip
 uwsm
 waybar
+wiremix
+wireless-regdb # wireless db
 wofi
 wpctl
 wl-paste
@@ -67,3 +71,6 @@ xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 yazi
 zoxide
+zsh
+zsh-syntax-highlighting
+zsh-autosuggestions
