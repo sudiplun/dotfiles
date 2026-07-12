@@ -7,25 +7,27 @@ local shiftMod = "SUPER + SHIFT"
 -- GLOBAL VARIABLES
 local terminal    = "ghostty"
 local fileManager = "nautilus"
-local browser     = "zen-browser"
+local browser     = "chromium"
 local menu        = "walker"
 
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("uwsm app -- " .. terminal))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("uwsm app -- " .. browser))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("uwsm app -- " .. fileManager))
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("uwsm app -- kitty"))
+hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd("uwsm app -- kitty", { float = true, move = { 1200, 650 } }))
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("uwsm app -- keepassxc"))
 hl.bind(mainMod .. " + SHIFT + p", hl.dsp.exec_cmd("~/.local/share/dotfiles/hypr/scripts/power_menu"))
+hl.bind(mainMod .. " + SHIFT + t", hl.dsp.exec_cmd("~/.local/share/dotfiles/hypr/scripts/toggle-theme"))
 
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. "+ SUPER_L", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit")) -- dwindle only
-hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen()) -- fullscreen
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())   -- fullscreen
 
--- Screenshot 
+-- Screenshot
 hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | wl-copy'))
-hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | tee ~/Pictures/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy'))
+hl.bind(mainMod .. " + Print",
+	hl.dsp.exec_cmd('grim -g "$(slurp -d)" - | tee ~/Pictures/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy'))
 
 -- carefully
 hl.bind(mainMod .. " + Delete",
@@ -33,7 +35,6 @@ hl.bind(mainMod .. " + Delete",
 hl.bind(shiftMod .. " + Q", hl.dsp.window.close())
 hl.bind(shiftMod .. " + Escape", hl.dsp.exec_cmd("uwsm stop"))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("loginctl lock-session"))
-hl.bind(shiftMod .. " + R", hl.dsp.exec_cmd("~/.config/hypr/scripts/record-screen"))
 hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("hyprpicker -a"))
 
 -- Move focus with mainMod + arrow keys
