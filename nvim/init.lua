@@ -1,9 +1,2 @@
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
-
--- Basic config
-require("set")
-require("remap")
-require("autocmds")
+-- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
