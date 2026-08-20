@@ -1,27 +1,15 @@
-selection_wrap = false # wrap list if at bottom or top
+walkerselection_wrap = false # wrap list if at bottom or top
 
 [placeholders]
 "default" = { input = "Search", list = "No Results" } # placeholders for input and empty list, key is the providers name, so f.e. "desktopapplications" or "menus:other"
 
 [providers]
-default = ["desktopapplications", "calc", "menus"]
-empty = ["desktopapplications"]                    # providers to be queried when query is empty
+# LOAD EXTRA PROVIDERS DEFAULT
+default = ["desktopapplications"]
 
 [[providers.prefixes]]
-prefix = "/"
-provider = "files"
-
-[[providers.prefixes]]
-prefix = "."
-provider = "symbols"
-
-[[providers.prefixes]]
-prefix = "!"
+prefix = "2"
 provider = "todo"
-
-[[providers.prefixes]]
-prefix = "="
-provider = "calc"
 
 [[providers.prefixes]]
 prefix = "1"
@@ -32,4 +20,5 @@ prefix = "@"
 provider = "archlinuxpkgs"
 
 [providers.clipboard]
-time_format = "%d.%m. - %H:%M" # format for the clipboard item date
+#time_format = "%d.%m. - %H:%M" # format for the clipboard item date
+time_foramt = "relative"

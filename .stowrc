@@ -2,4 +2,5 @@
 --ignore=.stowrc
 --ignore=INSTALL.sh
 --ignore=README.md
+--ignore=boot.sh
 --ignore='\.git.*'
