@@ -1,5 +1,2 @@
-hl.on("hyprland.start", function()
-	hl.exec_cmd("uwsm app -- hypridle")
-	hl.exec_cmd("/usr/lib/xdg-desktop-portal-hyprland")
-	hl.exec_cmd("/usr/lib/xdg-desktop-portal")
-end)
+-- Extra autostart processes.
+-- o.launch_on_start("my-service")
