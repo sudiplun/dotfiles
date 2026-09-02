@@ -21,7 +21,7 @@
 -- o.bind("SUPER + SPACE", "Omarchy menu", "omarchy-menu toggle root")
 
 -- Disable a default binding without replacing it.
--- hl.unbind("SUPER + SHIFT + B")
+hl.unbind("SUPER + SHIFT + B")
 
 -- Logitech MX Keys examples:
 -- o.bind("SUPER + SHIFT + S", nil, "omarchy-capture-screenshot")
@@ -29,12 +29,15 @@
 -- o.bind("SUPER + PERIOD", nil, "omarchy-shell shell toggle omarchy.emojis")
 
 for i = 1, 5 do
-	local key = i % 10 -- 10 maps to key 0
-	-- on uk keyboard MOD5 = alt gr on the right side 
-	hl.bind("MOD5 + " .. " + " .. key, hl.dsp.focus({ workspace = i }))
-	hl.bind("MOD5 + " .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+  local key = i % 10 -- 10 maps to key 0
+  -- on uk keyboard MOD5 = alt gr on the right side
+  hl.bind("MOD5 + " .. " + " .. key, hl.dsp.focus({ workspace = i }))
+  hl.bind("MOD5 + " .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
--- 
+-- toggle microphone
 hl.bind("CTRL + M", hl.dsp.exec_cmd("pamixer --default-source -m"))
 hl.bind("CTRL + SHIFT + M", hl.dsp.exec_cmd("pamixer --default-source -u"))
+-- extra apps
+o.bind("SUPER + X", nil, "keepassxc")
+o.bind("SUPER + SHIFT + B", nil, "google-chrome-stable")
