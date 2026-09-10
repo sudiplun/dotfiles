@@ -36,8 +36,20 @@ for i = 1, 5 do
 end
 
 -- toggle microphone
-hl.bind("CTRL + M", hl.dsp.exec_cmd("pamixer --default-source -m"))
-hl.bind("CTRL + SHIFT + M", hl.dsp.exec_cmd("pamixer --default-source -u"))
+o.bind("CTRL + M", "Mute microphone", { launch = "pamixer --default-source -m" })
+o.bind("CTRL + SHIFT + M", "UnMute microphone", { launch = "pamixer --default-source -u" })
+
 -- extra apps
-o.bind("SUPER + X", nil, "keepassxc")
-o.bind("SUPER + SHIFT + B", nil, "google-chrome-stable")
+o.bind("SUPER + X", "Password Manager", "keepassxc")
+o.bind("SUPER + SHIFT + B", "Google Chrome", "google-chrome-stable")
+
+-- flea --default: begin. Written by `flea --default`; `flea --default off` removes the block whole.
+hl.unbind("SUPER + SHIFT + F")
+o.bind("SUPER + SHIFT + F", "File manager", { launch = 'flea --gui' })
+hl.unbind("SUPER + ALT + SHIFT + F")
+o.bind("SUPER + ALT + SHIFT + F", "File manager (cwd)", { launch = 'flea --gui "$(omarchy-cmd-terminal-cwd)"' })
+-- flea --default: end.
+--
+-- flea --picker: begin. Written by `flea --picker`; `flea --picker off` removes the block whole.
+o.window("com.thisisgm.flea.picker", { tag = "+floating-window" })
+-- flea --picker: end.

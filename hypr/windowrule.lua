@@ -5,6 +5,7 @@ o.window("ghostty", { workspace = "2" })
 o.window("google-chrome", { workspace = "7" })
 o.window("org.telegram.desktop", { workspace = "9" })
 o.window("org.gnome.Nautilus", { workspace = "4" })
+o.window("com.thisisgm.flea", { workspace = "4" })
 o.window("KeePassXC", { workspace = "6" })
 
 -- border colors
