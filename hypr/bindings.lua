@@ -29,10 +29,10 @@ hl.unbind("SUPER + SHIFT + B")
 -- o.bind("SUPER + PERIOD", nil, "omarchy-shell shell toggle omarchy.emojis")
 
 for i = 1, 5 do
-  local key = i % 10 -- 10 maps to key 0
-  -- on uk keyboard MOD5 = alt gr on the right side
-  hl.bind("MOD5 + " .. " + " .. key, hl.dsp.focus({ workspace = i }))
-  hl.bind("MOD5 + " .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+	local key = i % 10 -- 10 maps to key 0
+	-- on uk keyboard MOD5 = alt gr on the right side
+	hl.bind("MOD5 + " .. " + " .. key, hl.dsp.focus({ workspace = i }))
+	hl.bind("MOD5 + " .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 -- toggle microphone
@@ -45,7 +45,7 @@ o.bind("SUPER + SHIFT + B", "Google Chrome", "google-chrome-stable")
 
 -- flea --default: begin. Written by `flea --default`; `flea --default off` removes the block whole.
 hl.unbind("SUPER + SHIFT + F")
-o.bind("SUPER + SHIFT + F", "File manager", { launch = 'flea --gui' })
+o.bind("SUPER + SHIFT + F", "File manager", { launch = "flea --gui" })
 hl.unbind("SUPER + ALT + SHIFT + F")
 o.bind("SUPER + ALT + SHIFT + F", "File manager (cwd)", { launch = 'flea --gui "$(omarchy-cmd-terminal-cwd)"' })
 -- flea --default: end.
