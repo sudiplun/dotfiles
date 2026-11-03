@@ -1,4 +1,4 @@
---target=~/.config
+--target=/home/$USER/.config
 --ignore=.stowrc
 --ignore=INSTALL.sh
 --ignore=README.md
