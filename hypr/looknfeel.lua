@@ -9,8 +9,8 @@ hl.config({
 		border_size = 2,
 
 		col = {
-			active_border = { colors = { "rgba(808080ff)", "rgba(00ff99ee)" }, angle = 45 },
-			-- active_border   = { colors = { "rgba(808080ff)" } },
+			-- active_border = { colors = { "rgba(808080ff)", "rgba(00ff99ee)" }, angle = 45 },
+			active_border = { colors = { "rgba(808080ff)" } },
 			inactive_border = "rgba(595959aa)",
 		},
 		-- Change to niri-like side-scrolling layout.

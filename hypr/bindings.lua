@@ -35,6 +35,15 @@ for i = 1, 5 do
 	hl.bind("MOD5 + " .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
+-- F9 push-to-talk dictation: hold F9 to speak, release to transcribe
+o.bind_hold(
+	"F9",
+	"Start dictation (push-to-talk)",
+	"omarchy-dictation start",
+	"Stop dictation (push-to-talk)",
+	"omarchy-dictation stop"
+)
+
 -- toggle microphone
 o.bind("CTRL + M", "Mute microphone", { launch = "pamixer --default-source -m" })
 o.bind("CTRL + SHIFT + M", "UnMute microphone", { launch = "pamixer --default-source -u" })
